@@ -5,6 +5,7 @@ import './index.css';
 import TechStack from "./components/TechStack";
 import Stuffs from "./components/Stuffs";
 import ProjSummary from "./components/Projsummary";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -17,12 +18,14 @@ export default function App() {
             <TechStack />
             <Stuffs />
             <ProjSummary />
+            <Footer />
           </div>
         } />
 
         <Route path="/project" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
               <Header />
+              <Projects />
           </div>
         } />
 
