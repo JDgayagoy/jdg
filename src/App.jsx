@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import ProjSummary from "./components/Projsummary";
 import Footer from "./components/Footer";
 import Certs from "./components/Cert";
+import VisitorPic from "./components/VisitorPic";
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/visitors" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
               <Header />
+              <VisitorPic />
           </div>
         } />
       </Routes>
