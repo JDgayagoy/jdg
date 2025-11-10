@@ -4,6 +4,7 @@ import StadiaMap from "./components/StadiaMap";
 import './index.css';
 import TechStack from "./components/TechStack";
 import Stuffs from "./components/Stuffs";
+import Projects from "./components/Projects";
 import ProjSummary from "./components/Projsummary";
 import Footer from "./components/Footer";
 
