@@ -4,11 +4,11 @@ export default function SpotifyCard() {
   const [track, setTrack] = useState(null);
 
   async function fetchSpotify() {
-    const res = await fetch("http://localhost:5000/api/spotify/now-playing");
+    const res = await fetch("https://jdg-backend.onrender.com/api/spotify/now-playing");
     const data = await res.json();
 
     if (!data.isPlaying) {
-      const recent = await fetch("http://localhost:5000/api/spotify/recently-played").then(r => r.json());
+      const recent = await fetch("https://jdg-backend.onrender.com/api/spotify/recently-played").then(r => r.json());
       setTrack({ ...recent, isPlaying: false });
     } else {
       setTrack({ ...data, isPlaying: true });

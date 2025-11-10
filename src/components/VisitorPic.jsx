@@ -13,7 +13,7 @@ const RandomPic = () => {
   // Fetch drawings from the server
   useEffect(() => {
     const fetchDrawings = async () => {
-      const apiUrl = 'http://localhost:5000/api/getDrawings'; // Updated API endpoint
+      const apiUrl = 'https://jdg-backend.onrender.com/api/getDrawings'; // Updated API endpoint
       try {
         const response = await fetch(apiUrl);
         if (!response.ok) {
@@ -58,7 +58,7 @@ const RandomPic = () => {
   useEffect(() => {
     const checkIfPosted = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/check-drawing', {
+        const response = await fetch('https://jdg-backend.onrender.com/api/check-drawing', {
           method: 'GET',
           credentials: 'include',
         });
