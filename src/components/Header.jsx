@@ -5,7 +5,7 @@ export default function Header() {
   const links = [
     { href: "visitors", label: "about" },
     { href: "project", label: "projects" },
-    { href: "#contact", label: "contact" },
+    { href: "contacts", label: "contact" },
   ];
 
   return (

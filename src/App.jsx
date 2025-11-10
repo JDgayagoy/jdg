@@ -38,6 +38,7 @@ export default function App() {
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
               <Header />
               <VisitorPic />
+              <Footer />
           </div>
         } />
       </Routes>
