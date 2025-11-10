@@ -7,6 +7,7 @@ import Stuffs from "./components/Stuffs";
 import Projects from "./components/Projects";
 import ProjSummary from "./components/Projsummary";
 import Footer from "./components/Footer";
+import Certs from "./components/Cert";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
             <TechStack />
             <Stuffs />
             <ProjSummary />
+            <Certs />
             <Footer />
           </div>
         } />
@@ -27,6 +29,7 @@ export default function App() {
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
               <Header />
               <Projects />
+              <Footer />
           </div>
         } />
 
