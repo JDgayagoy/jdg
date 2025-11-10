@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import StadiaMap from "./components/StadiaMap";
 import './index.css';
 import TechStack from "./components/TechStack";
+import Stuffs from "./components/Stuffs"
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
             <Header />
             <StadiaMap />
             <TechStack />
+            <Stuffs />
           </div>
         } />
 
