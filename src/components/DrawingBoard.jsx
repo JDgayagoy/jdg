@@ -3,7 +3,7 @@ import React, { useRef, useEffect, useState, useCallback } from 'react';
 const BACKGROUND_COLOR = '#E0E0E0'; 
 const CANVAS_ASPECT_RATIO = 600 / 510; 
 const MAX_HISTORY_SIZE = 50;
-const API_URL = 'http://jdg-backend.onrender.com/api/postDrawing';
+const API_URL = 'https://jdg-backend.onrender.com/api/postDrawing';
 
 /**
  * Custom Notification Component (Replaces alert() and window.alert())
