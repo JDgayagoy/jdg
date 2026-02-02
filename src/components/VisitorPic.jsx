@@ -91,10 +91,10 @@ const RandomPic = () => {
           <h1 className="text-white">Thank you for Posting! 🫶🏻</h1>
         </header>
       ) : (
-        <header className="w-full h-17 absolute top-0 left-0 bg-[#252525] opacity-90 z-10000 flex justify-end items-center px-4">
+        <header className="w-full h-14 absolute top-0 left-0 bg-[#252525] opacity-90 z-10000 flex justify-end items-center px-4">
           <button
             onClick={toggleDrawingBoard} // Toggle the DrawingBoard visibility
-            className="text-[15px] text-black w-auto px-3 h-10 rounded-md bg-white"
+            className="text-[13px] text-black w- px-3 h-7 rounded-md bg-white"
           >
             Leave a Note
           </button>
@@ -115,7 +115,7 @@ const RandomPic = () => {
         {loading ? (
           <div className="text-xl text-gray-500 animate-pulse">Loading drawings...</div>
         ) : drawings.length === 0 ? (
-          <div className="text-xl text-gray-500">No drawings found.</div>
+          <div className="text-md text-gray-500">No drawings found.</div>
         ) : (
           drawings.map((drawing, index) => (
             <DrawingCard

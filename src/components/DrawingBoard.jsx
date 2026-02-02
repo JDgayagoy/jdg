@@ -409,13 +409,9 @@ useEffect(() => {
             ref={containerRef}
             className=" w-full z-100000 max-w-sm md:max-w-md lg:min-w-1/6 rounded-xl absolute top-1/2 left-1/2 transform -translate-1/2 p-0 mx-auto bg-[#252525] border border-[#1B1B1B] shadow-2xl" 
         >
-            {/* Notification Component must be here (or outside) */}
             <Notification notification={notification} onClose={() => setNotification(null)} />
-            
-            {/* Top Toolbar Container */}
+
             <div className="w-full bg-transparent rounded-t-xl px-4 flex justify-between mt-1 -mb-2 items-center text-white">
-                
-                {/* Left side: Color Selection */}
                 <div className="flex h-auto gap-2 items-center relative">
                     
                     {/* 1. Primary Responsive Color Selector Button (Visible ONLY on screens smaller than SM: 640px) */}
