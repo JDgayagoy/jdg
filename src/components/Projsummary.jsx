@@ -14,7 +14,7 @@ export default function ProjSummary() {
             </div>
 
             {/* Grid Layout for Project Boxes */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-5 mb-3">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 mt-6 mb-3">
                 {/* Project Box 1 */}
                 <motion.div
                     whileHover={{
