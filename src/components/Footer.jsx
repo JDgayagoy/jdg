@@ -1,16 +1,13 @@
 import { motion } from "framer-motion"
 
 export default function Footer() {
-    // Define the URLs here for clarity and easy updating
     const GITHUB_URL = "https://github.com/JDgayagoy"; 
-     // Replace with your actual email address
 
     return (
-        <section className="relative w-full h-20 bg-transparent -mt-0 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595]">
+        <section className="relative w-full h-20 bg-transparent -mt-5 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595]">
             <div className=" bg-transparent w-full h-full flex justify-around gap-30 items-center px-4 md:px-0">
                 <div className="flex gap-4 items-center">
                     
-                    {/* --- GITHUB LINK (Redirects to your account) --- */}
                     <motion.a 
                         href={GITHUB_URL} // Set the GitHub URL here
                         target="_blank"  // Open link in a new tab

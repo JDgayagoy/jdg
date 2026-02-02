@@ -85,7 +85,7 @@ const RandomPic = () => {
   };
 
   return (
-    <div className="relative w-full h-210 bg-transparent md:max-w-xl lg:min-w-1/6 rounded-xl p-10 mt-10 rounded-xl overflow-hidden">
+    <div className="relative w-full h-210 bg-transparent md:max-w-xl lg:min-w-1/6 rounded-xl p-10 mt-10 mb-10 rounded-xl overflow-hidden">
       {hasPostedNote ? (
         <header className="absolute top-0 left-0 z-10000 w-full p-4 h-17 bg-[#252525] opacity-90 flex justify-center items-center">
           <h1 className="text-white">Thank you for Posting! 🫶🏻</h1>

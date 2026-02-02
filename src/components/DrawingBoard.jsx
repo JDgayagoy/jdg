@@ -5,16 +5,11 @@ const CANVAS_ASPECT_RATIO = 600 / 510;
 const MAX_HISTORY_SIZE = 50;
 const API_URL = 'https://jdg-backend.onrender.com/api/postDrawing';
 
-/**
- * Custom Notification Component (Replaces alert() and window.alert())
- * NOTE: Boxicons (bx) assumed to be loaded for icons.
- */
 const Notification = ({ notification, onClose }) => {
     if (!notification) return null;
 
     const { message, type } = notification;
     
-    // Determine styles based on type
     let bgColor = 'bg-green-500';
     let icon = 'bx bx-check-circle';
     if (type === 'error') {
@@ -25,7 +20,6 @@ const Notification = ({ notification, onClose }) => {
         icon = 'bx bx-info-circle';
     }
 
-    // Auto-close after 5 seconds
     useEffect(() => {
         const timer = setTimeout(onClose, 5000);
         return () => clearTimeout(timer);

@@ -59,7 +59,7 @@ export default function TechStack() {
 
   return (
     <motion.section
-      className="flex flex-wrap justify-center gap-3 mt-8 mb-30 px-4 sm:max-w-full md:min-w-[60%] lg:min-w-[35%] md:max-w-[35%] mx-auto"
+      className="flex flex-wrap justify-center gap-3 mt-8 mb-30 px-4 max-w-xl mx-auto"
       initial="hidden"
       animate="visible"
       variants={{
