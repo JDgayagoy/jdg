@@ -64,7 +64,7 @@ export default function Certs(){
 
     return(
         <> 
-            <section className="relative w-full h-auto bg-transparent md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl p-4 mt-14">
+            <section className="relative w-full  h-auto bg-transparent md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl p-4 mt-14">
                 <div className="absolute top-0 left-4 w-auto h-6 px-2 py-2 bg-[#252525] flex justify-center items-center rounded-[2px] text-[10px] font-semibold">
                     <p className='text-[#5F5F5F] relative z-1000'>CERTS & AWARDS</p>
                 </div>
@@ -109,7 +109,7 @@ export default function Certs(){
                     
                     {/* Certificate 3: ICAST */}
                     <motion.div 
-                        className="w-full relative bg-transparent w-full h-auto py-5 border border-[#252525] rounded-md flex flex-col group cursor-pointer"
+                        className="w-full relative bg-transparent h-auto py-5 border border-[#252525] rounded-md flex flex-col group cursor-pointer"
                         variants={techItemVariants}
                         whileHover={{ backgroundColor: "#252525", scale: 1.02 }}
                         onClick={() => handleCertClick(CERT_IMAGES.icast, 'icast')} 

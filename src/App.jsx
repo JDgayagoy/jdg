@@ -41,6 +41,17 @@ export default function App() {
               <Footer />
           </div>
         } />
+
+        <Route path="/contacts" element={
+          <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
+              <Header />
+              <div className="relative w-full h-screen bg-transparent -mt-20 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595] bottom-0">
+                <div className="absolute bottom-0 w-full h-auto">
+                  <Footer />
+                </div>
+              </div>
+          </div>
+        } />
       </Routes>
     </Router>
   );

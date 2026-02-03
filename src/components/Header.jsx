@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import Skeleton from "react-loading-skeleton";
 
 export default function Header() {
   const links = [
@@ -9,10 +10,16 @@ export default function Header() {
   ];
 
   return (
-    <header className="w-full max-w-4xl px-10 py-4 mt-3">
+    <header className="w-full max-w-4xl px-10 py-4 mt-3 z-1000">
+      <Skeleton height={40} width={200} />
+
       {/* Top row: brand + (desktop) nav */}
       <div className="flex items-center justify-around w-full">
-        <Link to="/"><h1 className="text-1xl md:text-xl font-bold tracking-wide select-none">JD.dev</h1></Link>
+        <Link to="/">
+          <h1 className="text-1xl md:text-xl font-bold tracking-wide select-none">
+            JD.dev
+          </h1>
+        </Link>
 
         {/* Desktop / tablet nav */}
         <nav className="hidden sm:block">
@@ -20,7 +27,11 @@ export default function Header() {
             {links.map((link, i) => (
               <motion.li
                 key={i}
-                whileHover={{ scale: 1.1, color: "#FFFFFF", fontWeight: 600 }}
+                whileHover={{
+                  scale: 1.1,
+                  color: "#FFFFFF",
+                  fontWeight: 600,
+                }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
                 <a href={link.href} className="text-[13px]">
@@ -36,7 +47,11 @@ export default function Header() {
       <nav className="sm:hidden mt-3">
         <ul className="flex justify-center gap-5 text-sm">
           {links.map((link, i) => (
-            <a key={i} href={link.href} className="opacity-90 hover:opacity-100">
+            <a
+              key={i}
+              href={link.href}
+              className="opacity-90 hover:opacity-100"
+            >
               {link.label}
             </a>
           ))}
