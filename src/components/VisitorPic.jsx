@@ -10,17 +10,17 @@ const RandomPic = () => {
   const [hasPostedNote, setHasPostedNote] = useState(false);
   const [isDrawingBoardVisible, setIsDrawingBoardVisible] = useState(false); // State for DrawingBoard visibility
 
-  // Fetch drawings from the server
+  // Fetch drawings from the server with caching
   useEffect(() => {
     const fetchDrawings = async () => {
-      const apiUrl = 'https://jdg-backend.onrender.com/api/getDrawings'; // Updated API endpoint
+      const apiUrl = 'https://jdg-backend.onrender.com/api/getDrawings';
       try {
-        const response = await fetch(apiUrl);
-        if (!response.ok) {
-          throw new Error(`HTTP status: ${response.status}`);
-        }
-        
-        const data = await response.json();
+        // Import cache utility dynamically to avoid circular dependencies
+        const { fetchWithCache } = await import('../utils/apiCache');
+        const data = await fetchWithCache(apiUrl, {
+          cacheDuration: 60 * 1000, // Cache drawings for 1 minute
+          deduplicate: true,
+        });
 
         if (!Array.isArray(data)) {
           throw new Error("API returned invalid data format (expected an array).");
@@ -28,16 +28,16 @@ const RandomPic = () => {
 
         // Apply more spread-out layout properties to the fetched data
         const drawingsWithLayout = data.map((d, index) => {
-          const angle = (index / data.length) * 360; // Distribute the drawings in a circular pattern
-          const radius = 150 + (index % 4) * 50;  // Increase radius for more space
+          const angle = (index / data.length) * 360;
+          const radius = 150 + (index % 4) * 50;
           const xOffset = Math.cos(angle * (Math.PI / 180)) * radius;
           const yOffset = Math.sin(angle * (Math.PI / 180)) * radius;
           
           return {
             ...d,
-            x: xOffset, // More spread-out X position
-            y: yOffset, // More spread-out Y position
-            rotate: (Math.random() * 10 - 5) + (index * 2), // Random rotation for variety
+            x: xOffset,
+            y: yOffset,
+            rotate: (Math.random() * 10 - 5) + (index * 2),
           };
         });
 
@@ -58,25 +58,20 @@ const RandomPic = () => {
   useEffect(() => {
     const checkIfPosted = async () => {
       try {
-        const response = await fetch('https://jdg-backend.onrender.com/api/check-drawing', {
-          method: 'GET',
-          credentials: 'include',
+        const { fetchWithCache } = await import('../utils/apiCache');
+        const data = await fetchWithCache('https://jdg-backend.onrender.com/api/check-drawing', {
+          cacheDuration: 30 * 1000, // Cache for 30 seconds
+          deduplicate: true,
         });
 
-        if (!response.ok) {
-          throw new Error('Failed to check if drawing was posted.');
-        }
-
-        const data = await response.json();
-        console.log('Response Data:', data);  // Log response data to check
-
-        setHasPostedNote(data.hasPosted); // Set the state based on response
+        setHasPostedNote(data.hasPosted);
       } catch (error) {
-        console.error(error);
+        console.error("Error checking if drawing was posted:", error);
+        setHasPostedNote(false);
       }
     };
 
-    checkIfPosted(); // Check when the component mounts
+    checkIfPosted();
   }, []);
 
   // Function to toggle the visibility of the DrawingBoard
