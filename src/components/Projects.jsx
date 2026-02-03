@@ -24,7 +24,7 @@ export default function Projects() {
                 opacity:100,
                 transition: { type:"spring", duration:0.5}
             }}
-            className="relative w-full h-[300px] border border-b-0 opacity-10 -top-50 border-[#252525] px-4 py-2 mt-15 rounded-t-[8px] flex flex-col items-center gap-4 overflow-hidden">
+            className="relative w-full h-[300px] border border-b-0 opacity-10 -top-50 border-[#252525] px-4 py-2 mt-8 rounded-t-[8px] flex flex-col items-center gap-4 overflow-hidden">
                 <motion.div6
                 whileHover={{
                     y: -10,

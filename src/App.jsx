@@ -9,6 +9,7 @@ import ProjSummary from "./components/Projsummary";
 import Footer from "./components/Footer";
 import Certs from "./components/Cert";
 import VisitorPic from "./components/VisitorPic";
+import {Meteors} from "./components/Meteor";
 
 export default function App() {
   return (
@@ -16,6 +17,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={
           <div className="relative w-full min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
+            <Meteors number={30} />
             <Header />
             <StadiaMap />
             <TechStack />
@@ -28,6 +30,7 @@ export default function App() {
 
         <Route path="/project" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
+              <Meteors number={30} />
               <Header />
               <Projects />
               <Footer />
@@ -36,6 +39,7 @@ export default function App() {
 
         <Route path="/visitors" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
+              <Meteors number={30} />
               <Header />
               <VisitorPic />
               <Footer />
@@ -44,6 +48,7 @@ export default function App() {
 
         <Route path="/contacts" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
+              <Meteors number={30} />
               <Header />
               <div className="relative w-full h-screen bg-transparent -mt-20 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595] bottom-0">
                 <div className="absolute bottom-0 w-full h-auto">
