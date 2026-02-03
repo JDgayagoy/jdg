@@ -1,16 +1,28 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    './index.html',
-    // The most reliable glob pattern for all source files in /src/
-    './src/**/*.{js,jsx,ts,tsx}', 
+    "./index.html",
+    "./src/**/*.{js,jsx}",
   ],
   theme: {
     extend: {
-      // 🐛 Fix: The 'sans' array must be inside the 'fontFamily' key
-      fontFamily: {
-        // This overrides Tailwind's default sans-serif stack to use Poppins
-        sans: ['Poppins', 'sans-serif'], 
+      keyframes: {
+        meteor: {
+          "0%": {
+            transform: "rotate(215deg) translateX(0)",
+            opacity: "1",
+          },
+          "70%": {
+            opacity: "1",
+          },
+          "100%": {
+            transform: "rotate(215deg) translateX(-500px)",
+            opacity: "0",
+          },
+        },
+      },
+      animation: {
+        "meteor-effect": "meteor 5s linear infinite",
       },
     },
   },
