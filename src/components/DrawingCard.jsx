@@ -31,7 +31,7 @@ const DrawingCard = ({ drawing, layout, index, total }) => {
           <img
             src={drawing.imageUrl}
             alt={`Drawing by ${drawing.name}`}
-            className="w-full h-full object-cover rounded-md"
+            className="w-full h-full object-cover rounded-md pointer-events-none select-none"
             onError={handleError}
             loading="lazy"
           />
