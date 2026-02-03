@@ -6,6 +6,7 @@ import { useMemo } from 'react';
 import 'leaflet/dist/leaflet.css';
 import About from './About';
 import Intro from './Intro';
+import TimeDisplay from './TimeDisplay';
 
 // Keep default marker fix in case you use normal markers elsewhere
 if (L.Icon?.Default) {
@@ -56,15 +57,8 @@ export default function StadiaMap() {
           </Marker>
         </MapContainer>
 
-        {/* Time badge (responsive spacing) */}
-        <div className="px-4 absolute top-3 right-7 sm:top-2 sm:right-6 z-1000 rounded-md bg-[#111111] px-3 py-1.5 font-mono text-sm">
-          {new Date().toLocaleTimeString('en-US', {
-            hour: '2-digit',
-            minute: '2-digit',
-            hour12: true,
-            timeZoneName: 'short',
-          })}
-        </div>
+        {/* Time badge (responsive spacing) - Extracted to prevent re-renders */}
+        <TimeDisplay />
         <div className="w-full h-auto bg-transparent">
           <About />
           <Intro />
