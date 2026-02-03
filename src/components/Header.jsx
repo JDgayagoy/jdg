@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Skeleton from "react-loading-skeleton";
 
 export default function Header() {
   const links = [
@@ -11,8 +10,6 @@ export default function Header() {
 
   return (
     <header className="w-full max-w-4xl px-10 py-4 mt-3 z-1000">
-      <Skeleton height={40} width={200} />
-
       {/* Top row: brand + (desktop) nav */}
       <div className="flex items-center justify-around w-full">
         <Link to="/">
