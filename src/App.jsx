@@ -59,7 +59,7 @@ export default function App() {
             <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
               <Meteors number={30} />
               <Header />
-              <div className="relative z-10 w-full h-full flex items-center justify-center mb-10 mt-10">
+              <div className="relative z-10 w-full h-full flex items-center justify-center mb-10 mt-4">
                 <ContactForm />
               </div>
               <Footer />

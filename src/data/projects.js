@@ -1,5 +1,5 @@
 import Project1 from '../assets/mockup.png';
-import Project2 from '../assets/Project1.png';
+import Project2 from '../assets/bnb.png';
 import Project3 from '../assets/jddev.png';
 import Project4 from '../assets/nicerice.jpg';
 import Project5 from '../assets/mockuputang.png';
@@ -11,7 +11,7 @@ const projects = [
         shortDescription: "An utang management system.",
         description: "Utang.ph is a web-based platform that helps individuals or group to manage their debt.",
         image: Project5,
-        githubUrl: "",
+        githubUrl: "https://github.com/JDgayagoy/utangph",
         liveUrl: "https://utangph.vercel.app/",
         bgColor: "#292929",
         isLive: true,
@@ -35,7 +35,7 @@ const projects = [
         shortDescription: "A Booking platform for Boarding House in Tuguegarao City.",
         description: "Shoe E-Commerce Platform built with Ionic/Angular and Firebase",
         image: Project1,
-        githubUrl: "",
+        githubUrl: "https://github.com/JDgayagoy/Kicks",
         liveUrl: "",
         bgColor: "#292929",
         isLive: false,
@@ -47,8 +47,8 @@ const projects = [
         shortDescription: "A Booking platform for Boarding House in Tuguegarao City.",
         description: "A Booking platform for Boarding House in Tuguegarao City.",
         image: Project2,
-        githubUrl: "",
-        liveUrl: "",
+        githubUrl: "https://github.com/JDgayagoy/BoardnBunk",
+        liveUrl: "https://fir-crud-375a5.web.app",
         bgColor: "#292929",
         isLive: true,
         isSourceAvailable: true
@@ -59,7 +59,7 @@ const projects = [
         shortDescription: "A Paddy rice drying system, with NiceRice App.",
         description: "An automated Paddy Rice Drying and Storage system using IoT technology, Connected to a Flutter Application using ESP32 Bluetooth connection.",
         image: Project4,
-        githubUrl: "",
+        githubUrl: "https://github.com/JDgayagoy/nice-rice-official",
         liveUrl: "",
         bgColor: "#292929",
         isLive: false,

@@ -8,7 +8,7 @@ export default function Projects() {
     }, []);
 
     return (
-        <section className="relative w-full h-auto mb-10 bg-transparent md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl p-4 mt-4 overflow-hidden">
+        <section className="relative w-full h-auto mb-10 bg-transparent md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl p-4 mt-5 overflow-hidden">
             <h1 className='font-medium text-2xl ml-3 mb-3 z-1000'>My Projects</h1>
 
             {projectsData.map((project) => (

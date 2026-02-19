@@ -36,8 +36,8 @@ export default function StadiaMap() {
 
   return (
     <section className="w-full mt-8 flex justify-center bg-transparent">
-      <div className="relative w-full md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-2xl px-4 overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-20 lg:top-28 rounded-t-2xl px-4 md:top-23 h-24 sm:h-28 sm:top-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-1000" />
+      <div className="relative w-full md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl px-4 overflow-hidden">
+        <div className="pointer-events-none absolute inset-x-0 top-20 lg:top-28 rounded-t-xl px-4 md:top-23 h-24 sm:h-28 sm:top-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-1000" />
         {/* Map resizes by breakpoints */}
         <MapContainer
           center={center}
@@ -45,7 +45,7 @@ export default function StadiaMap() {
           scrollWheelZoom
           zoomControl={false}
           attributionControl={false}      // hide control; keep attribution string below for compliance
-          className="h-44 sm:h-48 md:h-50 lg:h-56 w-full rounded-b-none rounded-t-2xl"
+          className="h-44 sm:h-48 md:h-50 lg:h-56 w-full rounded-b-none rounded-t-xl"
         >
           <TileLayer
             url={`https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${STADIA_API_KEY}`}
