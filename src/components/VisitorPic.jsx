@@ -32,7 +32,7 @@ const RandomPic = () => {
           const radius = 150 + (index % 4) * 50;
           const xOffset = Math.cos(angle * (Math.PI / 180)) * radius;
           const yOffset = Math.sin(angle * (Math.PI / 180)) * radius;
-          
+
           return {
             ...d,
             x: xOffset,
@@ -82,11 +82,11 @@ const RandomPic = () => {
   return (
     <div className="relative w-full h-210 bg-transparent md:max-w-xl lg:min-w-1/6 rounded-xl p-10 mt-10 mb-10 rounded-xl overflow-hidden">
       {hasPostedNote ? (
-        <header className="absolute top-0 left-0 z-10000 w-full p-4 h-17 bg-[#252525] opacity-90 flex justify-center items-center">
+        <header className="absolute top-0 left-0 z-999 w-full p-4 h-17 bg-[#252525] opacity-90 flex justify-center items-center">
           <h1 className="text-white">Thank you for Posting! 🫶🏻</h1>
         </header>
       ) : (
-        <header className="w-full h-14 absolute top-0 left-0 bg-[#252525] opacity-90 z-10000 flex justify-end items-center px-4">
+        <header className="w-full h-14 absolute top-0 left-0 bg-[#252525] opacity-90 z-999 flex justify-end items-center px-4">
           <button
             onClick={toggleDrawingBoard} // Toggle the DrawingBoard visibility
             className="text-[13px] text-black w- px-3 h-7 rounded-md bg-white"

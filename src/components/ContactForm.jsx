@@ -61,12 +61,12 @@ const ContactForm = () => {
 
     return (
         <motion.div
-            className="w-full max-w-xl mx-auto p-4"
+            className="w-full max-w-xl mx-auto p-2 md:p-4"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
         >
-            <div className="bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg p-6 sm:p-8 shadow-xl">
+            <div className="bg-[#0e0e0e] border border-[#1e1e1e] rounded-lg p-6 sm:p-6 shadow-xl">
                 <h1 className="text-3xl font-bold text-white mt-3 mb-4">Let's Connect</h1>
                 <p className="text-[#888888] mb-6 text-sm leading-relaxed">
                     Have a project in mind or just want to chat? Feel free to reach out! I'm always open to discussing new opportunities, collaborations, or answering questions.
