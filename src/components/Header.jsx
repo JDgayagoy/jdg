@@ -31,9 +31,9 @@ export default function Header() {
                 }}
                 transition={{ type: "spring", stiffness: 200 }}
               >
-                <a href={link.href} className="text-[13px]">
+                <Link to={`/${link.href}`} className="text-[13px]">
                   {link.label}
-                </a>
+                </Link>
               </motion.li>
             ))}
           </ul>
@@ -44,13 +44,13 @@ export default function Header() {
       <nav className="sm:hidden mt-3">
         <ul className="flex justify-center gap-5 text-sm">
           {links.map((link, i) => (
-            <a
+            <Link
               key={i}
-              href={link.href}
+              to={`/${link.href}`}
               className="opacity-90 hover:opacity-100"
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </ul>
       </nav>

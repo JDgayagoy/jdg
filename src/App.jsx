@@ -5,11 +5,12 @@ import './index.css';
 import TechStack from "./components/TechStack";
 import Stuffs from "./components/Stuffs";
 import Projects from "./components/Projects";
+import Experience from "./components/Experience";
 import ProjSummary from "./components/Projsummary";
 import Footer from "./components/Footer";
 import Certs from "./components/Cert";
 import VisitorPic from "./components/VisitorPic";
-import {Meteors} from "./components/Meteor";
+import { Meteors } from "./components/Meteor";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
             <Header />
             <StadiaMap />
             <TechStack />
+            <Experience />
             <Stuffs />
             <ProjSummary />
             <Certs />
@@ -30,31 +32,31 @@ export default function App() {
 
         <Route path="/project" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
-              <Meteors number={30} />
-              <Header />
-              <Projects />
-              <Footer />
+            <Meteors number={30} />
+            <Header />
+            <Projects />
+            <Footer />
           </div>
         } />
 
         <Route path="/visitors" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
-              <Meteors number={30} />
-              <Header />
-              <VisitorPic />
-              <Footer />
+            <Meteors number={30} />
+            <Header />
+            <VisitorPic />
+            <Footer />
           </div>
         } />
 
         <Route path="/contacts" element={
           <div className="relative min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center">
-              <Meteors number={30} />
-              <Header />
-              <div className="relative w-full h-screen bg-transparent -mt-20 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595] bottom-0">
-                <div className="absolute bottom-0 w-full h-auto">
-                  <Footer />
-                </div>
+            <Meteors number={30} />
+            <Header />
+            <div className="relative w-full h-screen bg-transparent -mt-20 md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-xl rounded-tl-xl overflow-hidden text-[#959595] bottom-0">
+              <div className="absolute bottom-0 w-full h-auto">
+                <Footer />
               </div>
+            </div>
           </div>
         } />
       </Routes>
