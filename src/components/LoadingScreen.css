@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+
+.loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0A0A0A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease-in-out;
+}
+
+.loading-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.hello-container {
+    width: 300px;
+    max-width: 80%;
+}
+
+.hello-svg {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+}
+
+.hello-text {
+    font-family: 'Dancing Script', cursive;
+    font-size: 32px;
+    fill: none;
+    stroke: white;
+    stroke-width: 1;
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw 2s ease-in-out forwards;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
+}
+
+.hello-path {
+    stroke-dasharray: 400;
+    stroke-dashoffset: 400;
+    animation: draw 2s ease-in-out forwards;
+    display: none;
+    /* Using text animation for better 'hello' shape */
+}
+
+@keyframes draw {
+    0% {
+        stroke-dashoffset: 400;
+    }
+
+    70% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+        fill: rgba(255, 255, 255, 1);
+    }
+}

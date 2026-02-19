@@ -6,7 +6,7 @@ export function Meteors({ number = 20, className = "" }) {
   const meteors = new Array(number).fill(null);
 
   return (
-    <div className={cn("absolute inset-0 overflow-hidden", className)}>
+    <div className={cn("absolute inset-0 overflow-hidden pointer-events-none", className)}>
       {meteors.map((_, idx) => (
         <span
           key={idx}
