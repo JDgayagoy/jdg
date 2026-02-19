@@ -62,7 +62,9 @@ export default function App() {
               <div className="relative z-10 w-full h-full flex items-center justify-center p-4">
                 <ContactForm />
               </div>
-              <Footer />
+              <div className="relative w-full h-full mt-4 flex items-center justify-center p-4">
+                <Footer />
+              </div>
             </div>
           } />
         </Routes>
