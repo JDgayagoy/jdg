@@ -37,7 +37,7 @@ export default function StadiaMap() {
   return (
     <section className="w-full mt-8 flex justify-center bg-transparent">
       <div className="relative w-full md:max-w-xl lg:min-w-1/6 rounded-bl-none rounded-t-2xl px-4 overflow-hidden">
-        <div className="pointer-events-none absolute inset-x-0 top-20 lg:top-28 rounded-t-2xl  md:top-23 h-24 sm:h-28 sm:top-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-1000" />
+        <div className="pointer-events-none absolute inset-x-0 top-20 lg:top-28 rounded-t-2xl px-4 md:top-23 h-24 sm:h-28 sm:top-20 bg-gradient-to-t from-[#0A0A0A] to-transparent z-1000" />
         {/* Map resizes by breakpoints */}
         <MapContainer
           center={center}

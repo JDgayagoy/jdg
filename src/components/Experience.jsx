@@ -1,31 +1,39 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
+// Import logos
+import gsLogo from "../assets/gslogo.jpg";
+import cseLogo from "../assets/cse.jpg";
+import fvlogo from "../assets/fvlogo.png";
+
 const workExperience = [
     {
-        company: "Singapore Institute of Technology",
+        image: gsLogo,
+        company: "Golden Suntec Solution Inc.",
         roles: [
             {
-                title: "Software Developer (Contract)",
-                period: "Apr 2023 - Jun 2023",
+                title: "Commercial Technology Intern",
+                period: "December 2025 - February 2026",
                 points: [
-                    "Built NFTVue, a NFT gallery website that allows students to connect their crypto wallets to view and verify their school event-issued NFTs",
-                    "Worked on DemoConstruct, a full-stack web application (React + Python) that uses Meshroom to reconstruct 3D models from captured images"
+                    "Customized Odoo ERP modules and automated data workflows, reducing processing time by 90%.",
+                    "Built CLI tools and managed Dockerized environments to streamline imports and pre-deployment QA."
                 ],
-                links: [{ label: "NFTVue", url: "#" }]
+                links: [{ label: "Odoo", url: "#" }, { label: "Docker", url: "#" }, { label: "Ubuntu", url: "#" }, { label: "n8n", url: "#" }]
             }
         ]
     },
     {
-        company: "DBS Bank",
+        image: fvlogo,
+        company: "Freelance",
         roles: [
             {
-                title: "Software Developer (Intern)",
+                title: "Graphic Designer",
                 period: "May 2022 - Dec 2022",
                 points: [
-                    "Worked on the backend for the digital exchange and asset custody application using Spring Boot and Java",
-                    "Built an admin dashboard web application for a DBS Metaverse event using Spring Security and Angular"
-                ]
+                    "Customized Odoo ERP modules and automated data workflows, reducing processing time by 90%.",
+                    "Built CLI tools and managed Dockerized environments to streamline imports and pre-deployment QA."
+                ],
+                links: [{ label: "Photoshop", url: "#" }, { label: "Illustrator", url: "#" }]
             }
         ]
     },
@@ -33,9 +41,10 @@ const workExperience = [
 
 const education = [
     {
-        institution: "Digipen Institute of Technology Singapore",
-        degree: "BS in Computer Science in Real-Time Interactive Simulation",
-        period: "Sep 2019 - Apr 2023",
+        image: cseLogo,
+        institution: "Cagayan State University - Carig Campus",
+        degree: "BS in Computer Science",
+        period: "2022 - 2026",
         points: [
             "Graduated with a Minor in Mathematics",
             "President of Digipen Student Management Committee for freshman year",
@@ -71,7 +80,11 @@ export default function Experience() {
             </div>
 
             {/* Content Container */}
-            <div className="relative border border-[#252525] bg-[#0A0A0A] rounded-b-lg p-6 mb-10 overflow-hidden">
+            <motion.div
+                layout
+                transition={{ duration: 0.4, ease: "easeInOut" }}
+                className="relative border border-[#252525] bg-[#0A0A0A] rounded-b-lg p-6 mb-10 overflow-hidden"
+            >
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={activeTab}
@@ -79,7 +92,7 @@ export default function Experience() {
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0, x: activeTab === "Work" ? 20 : -20 }}
                         transition={{ duration: 0.3 }}
-                        className="space-y-12"
+                        className="space-y-8"
                     >
                         {activeTab === "Work" ? (
                             workExperience.map((exp, idx) => (
@@ -91,12 +104,16 @@ export default function Experience() {
 
                                     {/* Icon Circle */}
                                     <div className="absolute left-0 top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#252525] bg-[#121212] flex items-center justify-center overflow-hidden">
-                                        <div className="text-[10px] text-gray-400 font-bold uppercase">
-                                            {exp.company.substring(0, 3)}
-                                        </div>
+                                        {exp.image ? (
+                                            <img src={exp.image} alt={exp.company} className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="text-[10px] text-gray-400 font-bold uppercase">
+                                                {exp.company.substring(0, 3)}
+                                            </div>
+                                        )}
                                     </div>
 
-                                    <div className="space-y-6">
+                                    <div className="space-y-2">
                                         <h3 className="text-base sm:text-lg font-bold text-white tracking-tight">
                                             {exp.company}
                                         </h3>
@@ -143,9 +160,13 @@ export default function Experience() {
 
                                     {/* Icon Circle */}
                                     <div className="absolute left-0 top-0 w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-[#252525] bg-[#121212] flex items-center justify-center overflow-hidden">
-                                        <div className="text-[10px] text-gray-400 font-bold uppercase">
-                                            {edu.institution.substring(0, 3)}
-                                        </div>
+                                        {edu.image ? (
+                                            <img src={edu.image} alt={edu.institution} className="w-full h-full object-cover" />
+                                        ) : (
+                                            <div className="text-[10px] text-gray-400 font-bold uppercase">
+                                                {edu.institution.substring(0, 3)}
+                                            </div>
+                                        )}
                                     </div>
 
                                     <div className="space-y-2 pl-14">
@@ -172,7 +193,7 @@ export default function Experience() {
                                         {edu.links && (
                                             <div className="flex gap-2 pt-2">
                                                 {edu.links.map((link, lIdx) => (
-                                                    <button key={lIdx} className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-[#252525] bg-[#121212] text-xs text-gray-300 hover:bg-[#252525] transition-colors">
+                                                    <button key={lIdx} type="button" className="flex items-center gap-1.5 px-3 py-1 rounded-lg border border-[#252525] bg-[#121212] text-xs text-gray-300 hover:bg-[#252525] transition-colors">
                                                         <i className="bx bx-globe text-[10px]"></i>
                                                         {link.label}
                                                     </button>
@@ -185,7 +206,7 @@ export default function Experience() {
                         )}
                     </motion.div>
                 </AnimatePresence>
-            </div>
+            </motion.div>
         </section>
     );
 }
