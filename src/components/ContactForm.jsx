@@ -11,8 +11,8 @@ const ContactForm = () => {
     const maxChars = 500;
 
     const GITHUB_URL = "https://github.com/JDgayagoy";
-    const LINKEDIN_URL = "#";
-    const GMAIL_URL = "mailto:trial@gmail.com";
+    const LINKEDIN_URL = "www.linkedin.com/in/johndavidgayagoy";
+    const GMAIL_URL = "mailto:gayagoyjohndavid@gmail.com";
 
     const handleChange = (e) => {
         const { name, value } = e.target;
