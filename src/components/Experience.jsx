@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 
 // Import logos
 import gsLogo from "../assets/gslogo.jpg";
-import cseLogo from "../assets/cse.jpg";
+import cseLogo from "../assets/csulogo.webp";
 import fvlogo from "../assets/fvlogo.png";
 
 const workExperience = [

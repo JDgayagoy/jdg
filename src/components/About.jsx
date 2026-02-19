@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"; // Import motion from framer-motion
 import picture from "../assets/picture.jpg";
-import Resume from "../assets/RESUME_JDgayagoy.pdf";
+import Resume from "../assets/Resume_JohnDavidGayagoy (2).pdf";
 import '../index.css';
 
 export default function About() {
@@ -28,7 +28,7 @@ export default function About() {
                 <div className="flex items-center gap-2 mt-1 align-middle w-auto">
                     <div className="size-2 rounded-full bg-green-500"></div>
                     <a href={Resume} className="text-gray-400 text-center align-middle font-light text-[12px] sm:text-[12px] underline decoration-transparent transition duration-300 ease-in-out hover:decoration-inherit">
-                        Intern at Golden Suntech Solution Inc. 
+                        Intern at Golden Suntech Solution Inc.
                     </a>
                 </div>
             </div>
