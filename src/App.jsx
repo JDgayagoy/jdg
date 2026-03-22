@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import Header from "./components/Header";
 import StadiaMap from "./components/StadiaMap";
 import './index.css';
@@ -22,6 +23,7 @@ export default function App() {
     <>
       {isLoading && <LoadingScreen onFinished={() => setIsLoading(false)} />}
       <Router>
+        <Analytics />
         <Routes>
           <Route path="/" element={
             <div className={`relative w-full min-h-screen bg-[#0A0A0A] text-white flex flex-col items-center transition-opacity duration-1000 ${isLoading ? 'opacity-0' : 'opacity-100'}`}>
