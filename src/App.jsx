@@ -13,15 +13,11 @@ import Footer from "./components/Footer";
 import Certs from "./components/Cert";
 import VisitorPic from "./components/VisitorPic";
 import { Meteors } from "./components/Meteor";
-import LoadingScreen from "./components/LoadingScreen";
 import ContactForm from "./components/ContactForm";
 
 export default function App() {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <>
-      {isLoading && <LoadingScreen onFinished={() => setIsLoading(false)} />}
       <Router>
         <Analytics />
         <Routes>
