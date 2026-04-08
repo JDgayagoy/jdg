@@ -3,8 +3,33 @@ import Project2 from '../assets/bnb.png';
 import Project3 from '../assets/jddev.png';
 import Project4 from '../assets/nicerice.jpg';
 import Project5 from '../assets/mockuputang.png';
+import Project6 from '../assets/mockuputang.png';
 
 const projects = [
+    {
+        id: 6,
+        title: "Ipange",
+        shortDescription: "A platform for locals to find Riders to run errands for them",
+        description: "A Real-time voice conversations with an AI interviewer. With Instant feedback on your clarity and technical depth.",
+        image: Project6,
+        githubUrl: "",
+        liveUrl: "https://cookme-orpin.vercel.app/",
+        bgColor: "#292929",
+        isLive: true,
+        isSourceAvailable: false
+    },
+    {
+        id: 5,
+        title: "CookMe",
+        shortDescription: "An AI powered interview platform",
+        description: "A Real-time voice conversations with an AI interviewer. With Instant feedback on your clarity and technical depth.",
+        image: Project6,
+        githubUrl: "",
+        liveUrl: "https://cookme-orpin.vercel.app/",
+        bgColor: "#292929",
+        isLive: true,
+        isSourceAvailable: false
+    },
     {
         id: 5,
         title: "Utang.ph",

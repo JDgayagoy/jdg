@@ -1,4 +1,4 @@
-import SpotifyCard from "./SpotifyCard";
+import PicturesCard from "./PicturesCard";
 import KanyeQuote from "./KanyeQuote";
 export default function Stuffs() {
   return (
@@ -11,7 +11,7 @@ export default function Stuffs() {
           <div className="sm:col-span-2 w-full min-h-[135px] sm:min-h-[135px] 
                                 px-5 bg-transparent border border-[#252525] rounded-[10px] 
                                 flex flex-col gap-2 transition duration-300 ease-in-out hover:bg-[#252525]">
-            <SpotifyCard />
+            <PicturesCard />
           </div>
           <div className="w-full min-h-[90px] sm:min-h-[135px] 
                                 border border-[#252525] rounded-md p-4 flex flex-col gap-3">
