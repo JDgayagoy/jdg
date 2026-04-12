@@ -15,10 +15,11 @@ const RandomPic = () => {
     const fetchDrawings = async () => {
       const apiUrl = 'https://jdg-backend.onrender.com/api/getDrawings';
       try {
-        // Import cache utility dynamically to avoid circular dependencies
+        // Import cache utility dynamically
         const { fetchWithCache } = await import('../utils/apiCache');
+        // Set cacheDuration to 0 to fetch fresh drawings every on reload/visit
         const data = await fetchWithCache(apiUrl, {
-          cacheDuration: 60 * 1000, // Cache drawings for 1 minute
+          cacheDuration: 0, 
           deduplicate: true,
         });
 
@@ -26,10 +27,15 @@ const RandomPic = () => {
           throw new Error("API returned invalid data format (expected an array).");
         }
 
-        // Apply more spread-out layout properties to the fetched data
-        const drawingsWithLayout = data.map((d, index) => {
-          const angle = (index / data.length) * 360;
-          const radius = 150 + (index % 4) * 50;
+        // Shuffle and pick exactly 7 random drawings
+        const shuffled = [...data].sort(() => Math.random() - 0.5);
+        const selectedDrawings = shuffled.slice(0, 7);
+
+        // Apply randomized layout properties to the selected 7 drawings
+        const drawingsWithLayout = selectedDrawings.map((d, index) => {
+          // Create a more varied distribution for the 7 items
+          const angle = (index / 7) * 360 + (Math.random() * 20 - 10);
+          const radius = 120 + (Math.random() * 100);
           const xOffset = Math.cos(angle * (Math.PI / 180)) * radius;
           const yOffset = Math.sin(angle * (Math.PI / 180)) * radius;
 
@@ -37,7 +43,7 @@ const RandomPic = () => {
             ...d,
             x: xOffset,
             y: yOffset,
-            rotate: (Math.random() * 10 - 5) + (index * 2),
+            rotate: (Math.random() * 30 - 15), // Random rotation between -15 and 15 degrees
           };
         });
 
