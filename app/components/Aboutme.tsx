@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 export default function Aboutme() {
     const playSound = () => {
-        const audio = new Audio('/sound/New_project.wav');
+        const audio = new Audio('/sound/New_Project.wav');
         audio.play().catch(e => console.error("Audio play failed:", e));
     };
 
