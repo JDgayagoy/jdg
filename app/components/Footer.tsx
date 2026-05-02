@@ -88,7 +88,7 @@ export default function Footer() {
                     </div>
 
                     <p className="text-[13px] md:text-[14px] text-gray-500 font-medium mb-4 opacity-50 leading-relaxed max-w-md">
-                        Automation Practitioner <span className="text-gray-300 mx-1">•</span> FullStack Engineer <span className="text-gray-300 mx-1">•</span> Robotics Enthusiast
+                        Automation Practitioner <span className="text-gray-300 mx-1">•</span> FullStack Developer <span className="text-gray-300 mx-1">•</span> Robotics Enthusiast
                     </p>
 
                     <a
