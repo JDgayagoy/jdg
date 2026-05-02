@@ -43,7 +43,7 @@ export default function Career() {
     };
 
     return (
-        <div className="relative w-full h-auto pt-4 pb-0">
+        <div className="relative w-full h-auto mt-8">
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function Career() {
                         href="/file/Resume-JohnDavidGayagoy.pdf"
                         download="Resume-JohnDavidGayagoy.pdf"
                         onClick={playSound}
-                        className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
+                        className="relative flex mt-1 items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
                         style={{
                             padding: "6px 12px",
                             color: "#4b1528",

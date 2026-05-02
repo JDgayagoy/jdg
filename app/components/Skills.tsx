@@ -34,11 +34,11 @@ const skillsList = [
 export default function Skills() {
     return (
         <div className="relative w-full min-h-[250px] py-4">
-            <div className="px-4 flex flex-col">
+            <div className="px-4 flex flex-col mt-4">
                 <h2 className="text-[14px] font-jakarta text-[#8e9b42] mb-1">Core</h2>
                 <h1 className="font-semibold text-2xl text-[#454545] leading-relaxed tracking-wide -mt-2 mb-6">Skills</h1>
 
-                <div className="flex flex-wrap gap-1 md:gap-2 w-full max-w-4xl">
+                <div className="flex flex-wrap gap-1 md:gap-2 w-full max-w-4xl mt-5">
                     {skillsList.map((skill) => (
                         <div
                             key={skill.name}

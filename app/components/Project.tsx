@@ -21,7 +21,7 @@ export default function Project() {
     const currentProject = PROJECTS[currentIndex];
 
     return (
-        <section className="relative w-full px-4 flex flex-col items-center">
+        <section className="relative w-full px-4 flex flex-col items-center mt-8">
             {/* Header */}
             <div className="w-full max-w-3xl flex flex-col items-start mb-4">
                 <span className="text-[#8e9b42] text-[14px] font-jakarta">Featured</span>

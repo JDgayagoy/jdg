@@ -58,7 +58,7 @@ export default function Github() {
             <div className="absolute -top-[70%] right-0 h-[120%] w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent pointer-events-none" />
 
-            <div className="w-full max-w-3xl flex flex-col items-start">
+            <div className="w-full max-w-3xl flex flex-col items-start mt-8">
                 {/* Header */}
                 <span className="text-[#8e9b42] text-[14px] font-jakarta">Contributions</span>
                 <h2 className="font-semibold text-2xl text-[#454545] leading-relaxed tracking-wide -mt-2 mb-6">Github</h2>
