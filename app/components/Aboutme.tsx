@@ -15,7 +15,8 @@ export default function Aboutme() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
-                className="font-semibold text-3xl md:text-4xl lg:text-5xl text-[#454545] leading-relaxed tracking-tight"
+                className="font-semibold text-3xl md:text-4xl lg:text-5xl leading-relaxed tracking-tight transition-colors duration-300"
+                style={{ color: 'var(--text-heading)' }}
             >
                 John David Gayagoy
             </motion.h1>
@@ -23,7 +24,8 @@ export default function Aboutme() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="font-jakarta text-base md:text-xl font-light text-gray-400 leading-relaxed tracking-normal -mt-1"
+                className="font-jakarta text-base md:text-xl font-light leading-relaxed tracking-normal -mt-1 transition-colors duration-300"
+                style={{ color: 'var(--text-secondary)' }}
             >
                 FullStack Developer • Automation Practitioner • Robotics Enthusiast
             </motion.h2>
@@ -42,17 +44,17 @@ export default function Aboutme() {
                     className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 no-underline"
                     style={{
                         padding: "6px 12px",
-                        color: "#ffffff",
-                        background: "linear-gradient(160deg, #4a6ff5 0%, #2C53E8 100%)",
+                        color: "var(--btn-blue-text)",
+                        background: `linear-gradient(160deg, var(--btn-blue-from) 0%, var(--btn-blue-to) 100%)`,
                         borderRadius: "12px",
                         boxShadow: `
                             0 1px 0 rgba(255,255,255,0.25) inset,
                             0 -1px 0 rgba(0,0,0,0.1) inset,
-                            0 6px 0 #1a35a8,
-                            0 7px 0 #122890,
+                            0 6px 0 var(--btn-blue-shadow1),
+                            0 7px 0 var(--btn-blue-shadow2),
                             0 10px 14px rgba(0,0,0,0.12)
                         `,
-                        border: "1.5px solid #1f3fd4",
+                        border: `1.5px solid var(--btn-blue-border)`,
                         fontFamily: "Inter, system-ui, sans-serif",
                         fontSize: "12px",
                         fontWeight: 700,
@@ -61,24 +63,24 @@ export default function Aboutme() {
                 >
                     <Bookmark size={14} strokeWidth={2.5} /> Available for Hire
                 </a>
-                <h3 className="text-gray-400 font-bold">or</h3>
+                <h3 className="font-bold transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>or</h3>
                 <a
                     href="mailto:johndavidgayagoy@gmail.com"
                     onClick={playSound}
                     className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 no-underline"
                     style={{
                         padding: "6px 12px",
-                        color: "#0a4a17",
-                        background: "linear-gradient(160deg, #5ef572 0%, #4AED60 100%)",
+                        color: "var(--btn-green-text)",
+                        background: `linear-gradient(160deg, var(--btn-green-from) 0%, var(--btn-green-to) 100%)`,
                         borderRadius: "12px",
                         boxShadow: `
                             0 1px 0 rgba(255,255,255,0.5) inset,
                             0 -1px 0 rgba(0,0,0,0.06) inset,
-                            0 6px 0 #28a83d,
-                            0 7px 0 #1f8f32,
+                            0 6px 0 var(--btn-green-shadow1),
+                            0 7px 0 var(--btn-green-shadow2),
                             0 10px 14px rgba(0,0,0,0.12)
                         `,
-                        border: "1.5px solid #35c44d",
+                        border: `1.5px solid var(--btn-green-border)`,
                         fontFamily: "Inter, system-ui, sans-serif",
                         fontSize: "12px",
                         fontWeight: 700,
@@ -93,14 +95,15 @@ export default function Aboutme() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="font-light text-lg md:text-xl text-gray-400 leading-relaxed tracking-wider mt-8"
+                className="font-light text-lg md:text-xl leading-relaxed tracking-wider mt-8 transition-colors duration-300"
+                style={{ color: 'var(--text-secondary)' }}
             >
                 I build apps, automate stuff, and occasionally fight bugs for a living.
             </motion.h2>
 
             {/* Horizontal lines */}
-            <div className="absolute -top-[40%] left-0 h-[240%] w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
-            <div className="absolute -top-[40%] right-0 h-[240%] w-px bg-gradient-to-b from-transparent via-gray-200 to-transparent" />
+            <div className="absolute -top-[40%] left-0 h-[240%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
+            <div className="absolute -top-[40%] right-0 h-[240%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
         </section >
     );
 }

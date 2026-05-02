@@ -1,3 +1,4 @@
+"use client";
 
 
 export default function Socials() {
@@ -51,19 +52,21 @@ export default function Socials() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative flex items-center gap-1.5 px-3 py-1.5 cursor-pointer select-none transition-all duration-75 hover:bg-gray-100 text-[15px] md:text-[19px] rounded-lg no-underline"
+                    className="group relative flex items-center gap-1.5 px-3 py-1.5 cursor-pointer select-none transition-all duration-75 text-[15px] md:text-[19px] rounded-lg no-underline"
                     style={{
-                        color: "#888",
+                        color: "var(--social-icon-color)",
                         background: "transparent",
                         fontFamily: "Inter, system-ui, sans-serif",
                         fontWeight: 600,
                     }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "var(--social-hover-bg)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-zinc-900 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0 z-50" style={{ backgroundColor: 'var(--tooltip-bg)' }}>
                         {handle}
                         {/* Tooltip Arrow */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-zinc-900" />
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent" style={{ borderTopColor: 'var(--tooltip-bg)' }} />
                     </div>
 
                     <div className="relative z-10 flex items-center gap-1.5">
@@ -72,8 +75,8 @@ export default function Socials() {
                     </div>
                 </a>
             ))}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
         </div>
     );
 }   

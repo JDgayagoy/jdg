@@ -50,9 +50,9 @@ export default function Career() {
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="flex justify-between items-center gap-4 px-4"
             >
-                <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight">So Far</h6>
+                <h6 className="font-light text-[14px] leading-relaxed tracking-tight transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>So Far</h6>
                 <div className="flex flex-row items-center justify-center gap-2">
-                    <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight mt-0 lg:mt-2">Need a Copy?</h6>
+                    <h6 className="font-light text-[14px] leading-relaxed tracking-tight mt-0 lg:mt-2 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Need a Copy?</h6>
                     <a
                         href="/file/Resume-JohnDavidGayagoy.pdf"
                         download="Resume-JohnDavidGayagoy.pdf"
@@ -60,17 +60,17 @@ export default function Career() {
                         className="relative flex -mt-1 lg:mt-1 items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
                         style={{
                             padding: "6px 12px",
-                            color: "#4b1528",
-                            background: "linear-gradient(160deg, #f470a0 0%, #e8478a 100%)",
+                            color: "var(--btn-pink-text)",
+                            background: "linear-gradient(160deg, var(--btn-pink-from) 0%, var(--btn-pink-to) 100%)",
                             borderRadius: "12px",
                             boxShadow: `
                             0 1px 0 rgba(255,255,255,0.3) inset,
                             0 -1px 0 rgba(0,0,0,0.08) inset,
-                            0 6px 0 #a32460,
-                            0 7px 0 #8a1a50,
+                            0 6px 0 var(--btn-pink-shadow1),
+                            0 7px 0 var(--btn-pink-shadow2),
                             0 10px 14px rgba(0,0,0,0.12)
                         `,
-                            border: "1.5px solid #c93575",
+                            border: "1.5px solid var(--btn-pink-border)",
                             fontFamily: "Inter, system-ui, sans-serif",
                             fontSize: "10px",
                             fontWeight: 700,
@@ -87,7 +87,8 @@ export default function Career() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="font-semibold text-2xl text-[#454545] leading-relaxed tracking-wide -mt-2 px-4"
+                className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 px-4 transition-colors duration-300"
+                style={{ color: 'var(--text-heading)' }}
             >
                 Career
             </motion.h2>
@@ -108,7 +109,7 @@ export default function Career() {
                                 style={{ left: marker.left, top: marker.top }}
                                 onClick={() => setActiveMarker(isActive ? null : marker.id)}
                             >
-                                <div className={`mb-0 flex flex-col gap-1 p-2 md:px-3 md:py-2 bg-[#FAFAFA]/95 backdrop-blur-md rounded-lg border border-black/[0.03] transition-all duration-300 origin-bottom ${isActive ? 'shadow-[0_8px_24px_rgba(0,0,0,0.08)] -translate-y-2' : 'shadow-[0_2px_12px_rgba(0,0,0,0.04)] group-hover:-translate-y-1 group-hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]'}`}>
+                                <div className={`mb-0 flex flex-col gap-1 p-2 md:px-3 md:py-2 backdrop-blur-md rounded-lg border transition-all duration-300 origin-bottom ${isActive ? 'shadow-[0_8px_24px_rgba(0,0,0,0.08)] -translate-y-2' : 'shadow-[0_2px_12px_rgba(0,0,0,0.04)] group-hover:-translate-y-1 group-hover:shadow-[0_4px_16px_rgba(0,0,0,0.06)]'}`} style={{ backgroundColor: 'var(--surface-card)', borderColor: 'var(--border-subtle)' }}>
                                     <div className="flex flex-col md:flex-row items-center gap-1.5 md:gap-2.5">
                                         <div className="flex items-center justify-center w-5 h-5 md:w-6 md:h-6 shrink-0 rounded bg-white shadow-[0_1px_3px_rgba(0,0,0,0.05)] border border-black/5 overflow-hidden">
                                             {marker.image ? (
@@ -116,7 +117,7 @@ export default function Career() {
                                             ) : null}
                                         </div>
                                         <div className="flex flex-col md:flex-row items-center">
-                                            <span className={`font-semibold transition-colors duration-300 text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[90px] md:max-w-none leading-tight ${isActive ? 'text-[11px] md:text-[14px] text-[#454545]' : 'text-[10px] md:text-[13px] text-[#888888]'}`}>{marker.title}</span>
+                                            <span className={`font-semibold transition-colors duration-300 text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[90px] md:max-w-none leading-tight ${isActive ? 'text-[11px] md:text-[14px]' : 'text-[10px] md:text-[13px]'}`} style={{ color: isActive ? 'var(--text-heading)' : 'var(--text-secondary)' }}>{marker.title}</span>
 
                                             {/* Social Icons - only show when active */}
                                             <motion.div
@@ -140,12 +141,12 @@ export default function Career() {
                                         className="overflow-hidden"
                                     >
                                         <div className="flex flex-col gap-0.5 mt-1 md:ml-[34px] md:min-w-max pb-1 items-center md:items-start">
-                                            <p className="text-[11px] md:text-[13px] text-[#777777] font-medium text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[120px] md:max-w-none leading-snug">{marker.subtitle}</p>
-                                            <p className="text-[10px] md:text-[12px] text-[#999999] text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[120px] md:max-w-none leading-snug">{marker.date}</p>
+                                            <p className="text-[11px] md:text-[13px] font-medium text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[120px] md:max-w-none leading-snug transition-colors duration-300" style={{ color: 'var(--marker-subtitle)' }}>{marker.subtitle}</p>
+                                            <p className="text-[10px] md:text-[12px] text-center md:text-left whitespace-normal md:whitespace-nowrap max-w-[120px] md:max-w-none leading-snug transition-colors duration-300" style={{ color: 'var(--marker-date)' }}>{marker.date}</p>
                                         </div>
                                     </motion.div>
                                 </div>
-                                <div className={`w-[1.5px] transition-all duration-300 ${isActive ? 'h-16 bg-[#FF6B00]' : 'h-10 bg-gradient-to-b from-[#454545]/40 to-[#454545]/10'}`}></div>
+                                <div className={`w-[1.5px] transition-all duration-300 ${isActive ? 'h-16' : 'h-10'}`} style={{ background: isActive ? 'var(--marker-active)' : `linear-gradient(to bottom, var(--text-heading), transparent)` }}></div>
                             </div>
                         );
                     })}

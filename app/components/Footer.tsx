@@ -42,10 +42,6 @@ export default function Footer() {
 
     return (
         <footer className="relative w-full py-20 px-6 overflow-hidden flex flex-col items-center">
-            {/* Background Big Text */}
-            <div className="absolute bottom-[-10%] left-1/2 -translate-x-1/2 select-none pointer-events-none">
-            </div>
-
             <div className="relative z-10 w-full max-w-3xl flex flex-col md:flex-row items-center md:items-start gap-12">
                 {/* Left: Illustration/Image */}
                 <div className="w-40 h-40 relative">
@@ -58,11 +54,11 @@ export default function Footer() {
                 </div>
 
                 {/* Vertical Divider (Desktop) */}
-                <div className="hidden md:block w-px h-40 bg-gray-200 mt-4" />
+                <div className="hidden md:block w-px h-40 mt-4" style={{ backgroundColor: 'var(--footer-divider)' }} />
 
                 {/* Right: Content */}
                 <div className="flex flex-col items-center md:items-start text-center md:text-left">
-                    <span className="text-[#8e9b42] text-[14px] font-jakarta mb-2">Socials</span>
+                    <span className="text-[14px] font-jakarta mb-2" style={{ color: 'var(--accent)' }}>Socials</span>
 
                     <div className="flex gap-4 mb-6">
                         {socials.map((social) => (
@@ -71,13 +67,25 @@ export default function Footer() {
                                 href={social.href}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="group relative p-3 bg-gray-100 rounded-lg text-gray-500 hover:bg-zinc-900 hover:text-white transition-all duration-300 shadow-sm"
+                                className="group relative p-3 rounded-lg transition-all duration-300 shadow-sm"
+                                style={{
+                                    backgroundColor: 'var(--footer-social-bg)',
+                                    color: 'var(--footer-social-text)',
+                                }}
+                                onMouseEnter={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'var(--tooltip-bg)';
+                                    e.currentTarget.style.color = 'white';
+                                }}
+                                onMouseLeave={(e) => {
+                                    e.currentTarget.style.backgroundColor = 'var(--footer-social-bg)';
+                                    e.currentTarget.style.color = 'var(--footer-social-text)';
+                                }}
                             >
                                 {/* Tooltip */}
-                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-zinc-900 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0">
+                                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0" style={{ backgroundColor: 'var(--tooltip-bg)' }}>
                                     {social.handle}
                                     {/* Tooltip Arrow */}
-                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-zinc-900" />
+                                    <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent" style={{ borderTopColor: 'var(--tooltip-bg)' }} />
                                 </div>
 
                                 <div className="relative z-10">
@@ -87,8 +95,8 @@ export default function Footer() {
                         ))}
                     </div>
 
-                    <p className="text-[13px] md:text-[14px] text-gray-500 font-medium mb-4 opacity-50 leading-relaxed max-w-md">
-                        Automation Practitioner <span className="text-gray-300 mx-1">•</span> FullStack Developer <span className="text-gray-300 mx-1">•</span> Robotics Enthusiast
+                    <p className="text-[13px] md:text-[14px] font-medium mb-4 opacity-50 leading-relaxed max-w-md transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
+                        Automation Practitioner <span className="mx-1" style={{ color: 'var(--border-divider)' }}>•</span> FullStack Developer <span className="mx-1" style={{ color: 'var(--border-divider)' }}>•</span> Robotics Enthusiast
                     </p>
 
                     <a
@@ -97,17 +105,17 @@ export default function Footer() {
                         className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 mb-10 no-underline"
                         style={{
                             padding: "10px 16px",
-                            color: "#4a1a00",
-                            background: "linear-gradient(160deg, #fb923c 0%, #ea580c 100%)",
+                            color: "var(--btn-orange-text)",
+                            background: `linear-gradient(160deg, var(--btn-orange-from) 0%, var(--btn-orange-to) 100%)`,
                             borderRadius: "14px",
                             boxShadow: `
                                 0 1px 0 rgba(255,255,255,0.3) inset,
                                 0 -1px 0 rgba(0,0,0,0.08) inset,
-                                0 6px 0 #c2410c,
-                                0 7px 0 #9a3412,
+                                0 6px 0 var(--btn-orange-shadow1),
+                                0 7px 0 var(--btn-orange-shadow2),
                                 0 10px 14px rgba(0,0,0,0.12)
                             `,
-                            border: "1.5px solid #f97316",
+                            border: `1.5px solid var(--btn-orange-border)`,
                             fontFamily: "Inter, system-ui, sans-serif",
                             fontSize: "14px",
                             fontWeight: 700,
@@ -116,7 +124,7 @@ export default function Footer() {
                     >
                         Let's Talk!
                     </a>
-                    <h1 className="absolute bottom-[-80%] left-1/2 -translate-x-1/2 text-[129px] font-black font-poppins tracking-tighter bg-gradient-to-b from-[#7e7e7e] to-white bg-clip-text text-transparent">JDGAYAGOY</h1>
+                    <h1 className="absolute bottom-[-80%] left-1/2 -translate-x-1/2 text-[129px] font-black font-poppins tracking-tighter bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to bottom, var(--footer-gradient), var(--page-bg))` }}>JDGAYAGOY</h1>
                 </div>
             </div>
         </footer>

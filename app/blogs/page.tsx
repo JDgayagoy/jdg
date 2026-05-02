@@ -9,18 +9,18 @@ export default async function BlogsPage() {
     const blogs = await getBlogs();
 
     return (
-        <div className="flex flex-col min-h-screen bg-[#FCFCFC] font-sans">
+        <div className="flex flex-col min-h-screen font-sans transition-colors duration-300" style={{ backgroundColor: 'var(--page-bg)' }}>
             <Navbar />
 
             <main className="flex-grow pt-32 pb-20 px-6 max-w-3xl mx-auto w-full">
                 {/* Header */}
                 <div className="mb-12">
-                    <Link href="/" className="inline-flex items-center gap-2 text-[#8e9b42] font-jakarta font-bold text-sm mb-6 hover:translate-x-[-4px] transition-transform">
+                    <Link href="/" className="inline-flex items-center gap-2 font-jakarta font-bold text-sm mb-6 hover:translate-x-[-4px] transition-transform" style={{ color: 'var(--accent)' }}>
                         <ArrowLeft size={16} />
                         Back to Home
                     </Link>
-                    <span className="text-[#8e9b42] text-[14px] font-jakarta block mb-1">My Thoughts</span>
-                    <h1 className="font-semibold text-4xl text-[#454545] tracking-tight leading-tight">Latest Blogs</h1>
+                    <span className="text-[14px] font-jakarta block mb-1" style={{ color: 'var(--accent)' }}>My Thoughts</span>
+                    <h1 className="font-semibold text-4xl tracking-tight leading-tight transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Latest Blogs</h1>
                 </div>
 
                 {/* Blog List Wrapper */}

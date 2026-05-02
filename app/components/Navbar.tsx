@@ -6,12 +6,13 @@ import Link from "next/link";
 import { Sun, Moon, Volume2, VolumeOff } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useTheme } from "../context/ThemeContext";
 
 export default function Navbar() {
     const pathname = usePathname();
     const isHome = pathname === "/";
     const [open, setOpen] = useState(false);
-    const [isDark, setIsDark] = useState(false);
+    const { theme, toggleTheme } = useTheme();
     const [isMuted, setIsMuted] = useState(true);
     const [scrolled, setScrolled] = useState(false);
     const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -39,9 +40,9 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-[#FCFCFC]/70">
+        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-colors duration-300" style={{ backgroundColor: 'var(--nav-bg)' }}>
             {/* Fading bottom border */}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
 
             <div className="max-w-3xl mx-auto px-6 py-4 flex items-center justify-between">
 
@@ -56,12 +57,31 @@ export default function Navbar() {
                 </Link>
 
                 {/* Navigation Menu */}
-                <ul className="flex items-center gap-4 sm:gap-6 text-gray-500">
-                    <li><Link href="/blogs" className="hover:text-gray-400 transition text-sm font-bold">blogs</Link></li>
+                <ul className="flex items-center gap-4 sm:gap-6" style={{ color: 'var(--nav-text)' }}>
+                    <li><Link href="/blogs" className="hover:opacity-70 transition text-sm font-bold">blogs</Link></li>
+                    <li>
+                        <button
+                            onClick={toggleTheme}
+                            className="hover:opacity-70 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
+                            aria-label="Toggle dark mode"
+                        >
+                            <AnimatePresence mode="wait" initial={false}>
+                                <motion.div
+                                    key={theme === "dark" ? "moon" : "sun"}
+                                    initial={{ scale: 0.5, opacity: 0, rotate: -90 }}
+                                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
+                                    exit={{ scale: 0.5, opacity: 0, rotate: 90 }}
+                                    transition={{ duration: 0.2, ease: "easeInOut" }}
+                                >
+                                    {theme === "dark" ? <Moon size={19} /> : <Sun size={19} />}
+                                </motion.div>
+                            </AnimatePresence>
+                        </button>
+                    </li>
                     <li>
                         <button
                             onClick={() => setIsMuted(!isMuted)}
-                            className="hover:text-gray-400 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
+                            className="hover:opacity-70 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
                         >
                             <AnimatePresence mode="wait" initial={false}>
                                 <motion.div

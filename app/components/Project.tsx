@@ -24,8 +24,8 @@ export default function Project() {
         <section className="relative w-full px-4 flex flex-col items-center mt-8">
             {/* Header */}
             <div className="w-full max-w-3xl flex flex-col items-start mb-4">
-                <span className="text-[#8e9b42] text-[14px] font-jakarta">Featured</span>
-                <h2 className="font-semibold text-2xl text-[#454545] leading-relaxed tracking-wide -mt-2 mb-6">Projects</h2>
+                <span className="text-[14px] font-jakarta" style={{ color: 'var(--accent)' }}>Featured</span>
+                <h2 className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 mb-6 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Projects</h2>
             </div>
 
             {/* Slider Container */}
@@ -36,19 +36,27 @@ export default function Project() {
                 {/* Left/Right Buttons */}
                 <button
                     onClick={prevProject}
-                    className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md z-20 transition-all active:scale-95 text-gray-800"
+                    className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-md z-20 transition-all active:scale-95"
+                    style={{
+                        backgroundColor: 'var(--project-nav-bg)',
+                        color: 'var(--project-nav-text)',
+                    }}
                 >
                     <ChevronLeft size={20} strokeWidth={2.5} />
                 </button>
                 <button
                     onClick={nextProject}
-                    className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 bg-white/90 hover:bg-white rounded-full flex items-center justify-center shadow-md z-20 transition-all active:scale-95 text-gray-800"
+                    className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-md z-20 transition-all active:scale-95"
+                    style={{
+                        backgroundColor: 'var(--project-nav-bg)',
+                        color: 'var(--project-nav-text)',
+                    }}
                 >
                     <ChevronRight size={20} strokeWidth={2.5} />
                 </button>
 
                 {/* Inner Image Container */}
-                <div className="group absolute inset-x-16 md:inset-x-32 top-14 md:top-20 bottom-14 md:bottom-20 rounded-xl overflow-hidden shadow-2xl bg-white border border-black/5">
+                <div className="group absolute inset-x-16 md:inset-x-32 top-14 md:top-20 bottom-14 md:bottom-20 rounded-xl overflow-hidden shadow-2xl border transition-colors duration-300" style={{ backgroundColor: 'var(--project-overlay-bg)', borderColor: 'var(--border-card)' }}>
                     <AnimatePresence mode="wait">
                         <motion.div
                             key={currentIndex}
@@ -88,11 +96,11 @@ export default function Project() {
                                 </div>
 
                                 {/* Tech Stack Overlay */}
-                                <div className="absolute top-full left-0 w-full h-[88px] bg-white flex flex-col items-center justify-center border-t border-gray-100 transition-transform duration-300 ease-out group-hover:-translate-y-[88px] pointer-events-auto">
-                                    <h4 className="text-[13px] font-semibold text-[#666] mb-2.5">Tech Stack</h4>
+                                <div className="absolute top-full left-0 w-full h-[88px] flex flex-col items-center justify-center border-t transition-all duration-300 ease-out group-hover:-translate-y-[88px] pointer-events-auto" style={{ backgroundColor: 'var(--project-overlay-bg)', borderColor: 'var(--project-overlay-border)' }}>
+                                    <h4 className="text-[13px] font-semibold mb-2.5 transition-colors duration-300" style={{ color: 'var(--project-techstack-text)' }}>Tech Stack</h4>
                                     <div className="flex flex-wrap justify-center gap-1.5 px-4">
                                         {currentProject.techStack.map(tech => (
-                                            <span key={tech} className="px-2.5 py-0.5 border border-gray-300/80 rounded-md text-[11px] font-semibold text-[#888] shadow-sm">
+                                            <span key={tech} className="px-2.5 py-0.5 border rounded-md text-[11px] font-semibold shadow-sm transition-colors duration-300" style={{ borderColor: 'var(--project-techstack-border)', color: 'var(--project-techstack-tag)' }}>
                                                 {tech}
                                             </span>
                                         ))}
@@ -110,17 +118,26 @@ export default function Project() {
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
-                        className={`w-2.5 h-2.5 rounded-full border-2 transition-all duration-300 ${idx === currentIndex
-                            ? "bg-[#8a8a8a] border-[#8a8a8a]"
-                            : "bg-transparent border-[#8a8a8a] hover:border-[#6a6a6a]"
-                            }`}
+                        className="w-2.5 h-2.5 rounded-full border-2 transition-all duration-300"
+                        style={{
+                            backgroundColor: idx === currentIndex ? 'var(--slider-dot)' : 'transparent',
+                            borderColor: idx === currentIndex ? 'var(--slider-dot)' : 'var(--slider-dot)',
+                        }}
                         aria-label={`Go to slide ${idx + 1}`}
                     />
                 ))}
             </div>
 
             {/* Show All Button */}
-            <Link href="/projects" className="mt-4 px-6 mb-5 py-2.5 rounded-[10px] border-2 border-gray-300/80 bg-gray-200/50 hover:bg-gray-300/50 text-[#888] font-bold text-sm transition-colors no-underline">
+            <Link
+                href="/projects"
+                className="mt-4 px-6 mb-5 py-2.5 rounded-[10px] border-2 font-bold text-sm transition-colors no-underline"
+                style={{
+                    borderColor: 'var(--project-showbtn-border)',
+                    backgroundColor: 'var(--project-showbtn-bg)',
+                    color: 'var(--project-showbtn-text)',
+                }}
+            >
                 Show All Projects
             </Link>
         </section>
