@@ -25,7 +25,7 @@ export default function Aboutme() {
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="font-jakarta text-base md:text-xl font-light text-gray-400 leading-relaxed tracking-normal -mt-1"
             >
-                FullStack Developer • UI/UX Designer • Robotics Enthusiast
+                FullStack Developer • Automation Practitioner • Robotics Enthusiast
             </motion.h2>
 
             <motion.div
