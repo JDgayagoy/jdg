@@ -52,12 +52,12 @@ export default function Career() {
             >
                 <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight">So Far</h6>
                 <div className="flex flex-row items-center justify-center gap-2">
-                    <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight mt-2">Need a Copy?</h6>
+                    <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight mt-0 lg:mt-2">Need a Copy?</h6>
                     <a
                         href="/file/Resume-JohnDavidGayagoy.pdf"
                         download="Resume-JohnDavidGayagoy.pdf"
                         onClick={playSound}
-                        className="relative flex mt-1 items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
+                        className="relative flex -mt-1 lg:mt-1 items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
                         style={{
                             padding: "6px 12px",
                             color: "#4b1528",
@@ -96,7 +96,7 @@ export default function Career() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
-                className="w-full mt-50 flex justify-center px-4 md:px-0 lg:px-0"
+                className="w-full mt-60 flex justify-center px-4 md:px-0 lg:px-0 md:mt-50"
             >
                 <div className="relative w-full aspect-[1969/530] max-h-[600px] max-w-[2229px] mx-auto">
                     {MARKERS.map((marker) => {

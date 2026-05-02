@@ -55,8 +55,8 @@ export default function Navbar() {
                     />
                 </Link>
 
-                {/* Desktop Menu */}
-                <ul className="hidden md:flex items-center gap-6 text-gray-500">
+                {/* Navigation Menu */}
+                <ul className="flex items-center gap-4 sm:gap-6 text-gray-500">
                     <li><Link href="/blogs" className="hover:text-gray-400 transition text-sm font-bold">blogs</Link></li>
                     <li>
                         <button
