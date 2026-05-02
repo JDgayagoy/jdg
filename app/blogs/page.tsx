@@ -26,7 +26,6 @@ export default async function BlogsPage() {
                 {/* Blog List Wrapper */}
                 <BlogList blogs={blogs} />
             </main>
-
             <Footer />
         </div>
     );

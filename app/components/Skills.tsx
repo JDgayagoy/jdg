@@ -6,15 +6,29 @@ const skillsList = [
     { name: "Python", icon: "https://cdn.simpleicons.org/python" },
     { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
     { name: "ReactJS", icon: "https://cdn.simpleicons.org/react" },
-    { name: "NextJS", icon: "https://cdn.simpleicons.org/nextdotjs/000000" }, // Next.js defaults to black usually, simpleicons Next.js is black
+    { name: "NextJS", icon: "https://cdn.simpleicons.org/nextdotjs/000000" },
+    { name: "Flutter", icon: "https://cdn.simpleicons.org/flutter" },
     { name: "Postgresql", icon: "https://cdn.simpleicons.org/postgresql" },
+    { name: "MongoDB", icon: "https://cdn.simpleicons.org/mongodb" },
+    { name: "Supabase", icon: "https://cdn.simpleicons.org/supabase" },
     { name: "PrismaORM", icon: "https://cdn.simpleicons.org/prisma/000000" },
+    { name: "Docker", icon: "https://cdn.simpleicons.org/docker" },
+    { name: "Kubernetes", icon: "https://cdn.simpleicons.org/kubernetes" },
+    { name: "n8n", icon: "https://cdn.simpleicons.org/n8n" },
+    { name: "Laravel", icon: "https://cdn.simpleicons.org/laravel" },
+    { name: "PHP", icon: "https://cdn.simpleicons.org/php" },
+    { name: "Electron", icon: "https://cdn.simpleicons.org/electron" },
+    { name: "Odoo", icon: "https://cdn.simpleicons.org/odoo" },
+    { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus" },
+    { name: "C#", icon: "https://cdn.simpleicons.org/csharp" },
+    { name: "Git", icon: "https://cdn.simpleicons.org/git" },
+    { name: "GitLab", icon: "https://cdn.simpleicons.org/gitlab" },
     { name: "Machine Learning", icon: "bot" },
     { name: "Deep Learning", icon: "network" },
     { name: "PyTorch", icon: "https://cdn.simpleicons.org/pytorch" },
     { name: "Numpy", icon: "https://cdn.simpleicons.org/numpy" },
     { name: "Pandas", icon: "https://cdn.simpleicons.org/pandas" },
-    { name: "ThreeJS", icon: "https://cdn.simpleicons.org/threedotjs/000000" } // Three.js is black/white
+    { name: "ThreeJS", icon: "https://cdn.simpleicons.org/threedotjs/000000" }
 ];
 
 export default function Skills() {

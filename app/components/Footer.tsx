@@ -21,7 +21,7 @@ export default function Footer() {
         {
             label: "Twitter",
             href: "https://twitter.com/jdgayagoy",
-            handle: "@jdgayagoy",
+            handle: "@hiimdabido",
             icon: (
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -91,9 +91,10 @@ export default function Footer() {
                         Machine Learning Engineer <span className="text-gray-300 mx-1">•</span> FullStack Engineer <span className="text-gray-300 mx-1">•</span> Robotics Enthusiast
                     </p>
 
-                    <button
+                    <a
+                        href="mailto:johndavidgayagoy@gmail.com"
                         onClick={playSound}
-                        className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 mb-10"
+                        className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 mb-10 no-underline"
                         style={{
                             padding: "10px 16px",
                             color: "#4a1a00",
@@ -114,7 +115,7 @@ export default function Footer() {
                         }}
                     >
                         Let's Talk!
-                    </button>
+                    </a>
                     <h1 className="absolute bottom-[-80%] left-1/2 -translate-x-1/2 text-[129px] font-black font-poppins tracking-tighter bg-gradient-to-b from-[#7e7e7e] to-white bg-clip-text text-transparent">JDGAYAGOY</h1>
                 </div>
             </div>

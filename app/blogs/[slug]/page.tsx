@@ -1,4 +1,14 @@
+import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
+
+export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+    const { slug } = await params;
+    const blog = await getBlogBySlug(slug);
+    return {
+        title: blog ? `${blog.title} | jaydeegayagoy` : "Blog | jaydeegayagoy",
+        description: blog?.excerpt || "Read my latest blog posts.",
+    };
+}
 import Footer from "@/app/components/Footer";
 import Link from "next/link";
 import { ArrowLeft, Calendar, Clock } from "lucide-react";

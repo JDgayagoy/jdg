@@ -34,9 +34,12 @@ export default function Aboutme() {
                 transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
                 className="flex flex-wrap items-center gap-3 mt-4"
             >
-                <button
+                <a
+                    href="https://linkedin.com/in/johndavidgayagoy"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onClick={playSound}
-                    className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
+                    className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 no-underline"
                     style={{
                         padding: "6px 12px",
                         color: "#ffffff",
@@ -57,11 +60,12 @@ export default function Aboutme() {
                     }}
                 >
                     <Bookmark size={14} strokeWidth={2.5} /> Available for Hire
-                </button>
+                </a>
                 <h3 className="text-gray-400 font-bold">or</h3>
-                <button
+                <a
+                    href="mailto:johndavidgayagoy@gmail.com"
                     onClick={playSound}
-                    className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
+                    className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75 no-underline"
                     style={{
                         padding: "6px 12px",
                         color: "#0a4a17",
@@ -82,7 +86,7 @@ export default function Aboutme() {
                     }}
                 >
                     <Coffee size={14} strokeWidth={2.5} /> Email me
-                </button>
+                </a>
             </motion.div>
 
             <motion.h2

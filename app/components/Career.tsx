@@ -53,7 +53,9 @@ export default function Career() {
                 <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight">So Far</h6>
                 <div className="flex flex-row items-center justify-center gap-2">
                     <h6 className="font-light text-[14px] text-[#454545] leading-relaxed tracking-tight mt-2">Need a Copy?</h6>
-                    <button
+                    <a
+                        href="/file/Resume-JohnDavidGayagoy.pdf"
+                        download="Resume-JohnDavidGayagoy.pdf"
                         onClick={playSound}
                         className="relative flex items-center gap-2 cursor-pointer select-none active:translate-y-[3px] transition-all duration-75"
                         style={{
@@ -73,10 +75,11 @@ export default function Career() {
                             fontSize: "10px",
                             fontWeight: 700,
                             letterSpacing: "0.05em",
+                            textDecoration: "none"
                         }}
                     >
                         <FileUser size={14} strokeWidth={2.5} /> Resume
-                    </button>
+                    </a>
                 </div>
             </motion.div>
 
