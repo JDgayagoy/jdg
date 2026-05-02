@@ -57,7 +57,6 @@ export default function Socials() {
                         background: "transparent",
                         fontFamily: "Inter, system-ui, sans-serif",
                         fontWeight: 600,
-                        filter: "blur(0.4px)",
                     }}
                 >
                     {/* Tooltip */}
