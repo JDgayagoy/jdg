@@ -33,8 +33,8 @@ export default function Certification() {
         <section className="relative py-12 px-4 w-full flex flex-col items-center">
             {/* Header */}
             <div className="w-full max-w-3xl flex flex-col items-start mb-4">
-                <span className="text-[#8e9b42] text-[14px] font-jakarta">Paper of</span>
-                <h2 className="font-semibold text-2xl text-[#454545] leading-relaxed tracking-wide -mt-2 mb-6">Certifications</h2>
+                <span className="text-[14px] font-jakarta" style={{ color: 'var(--accent)' }}>Paper of</span>
+                <h2 className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 mb-6 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Certifications</h2>
             </div>
 
             {/* List */}
@@ -45,27 +45,30 @@ export default function Certification() {
                         href={cert.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group flex items-center gap-5 first:border-t py-3 border-b border-gray-200 hover:bg-gray-50/50 transition-all px-2 -mx-2 hover:scale-110 hover:bg-white"
+                        className="group flex items-center gap-5 first:border-t py-3 border-b transition-all px-2 -mx-2 hover:scale-110"
+                        style={{ borderColor: 'var(--cert-border)' }}
+                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cert-hover-bg)')}
+                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                     >
                         {/* Icon/Logo Placeholder */}
-                        <div className="w-8 h-8 rounded-sm bg-white border border-gray-100 flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform">
+                        <div className="w-8 h-8 rounded-sm border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: 'var(--cert-icon-bg)', borderColor: 'var(--cert-icon-border)' }}>
                             {cert.icon}
                         </div>
 
                         {/* Info */}
-                        <div className="flex-1 flex flex-col border-l border-gray-200 pl-4">
-                            <h3 className="text-[12px] md:text-[16px] font-light text-[#454545] group-hover:text-blue-600 transition-colors leading-tight mt-1">
+                        <div className="flex-1 flex flex-col border-l pl-4" style={{ borderColor: 'var(--cert-info-border)' }}>
+                            <h3 className="text-[12px] md:text-[16px] font-light group-hover:text-blue-600 transition-colors leading-tight mt-1" style={{ color: 'var(--text-label)' }}>
                                 {cert.title}
                             </h3>
-                            <div className="flex items-center gap-2 text-[13px] md:text-[14px] text-gray-500 font-medium">
+                            <div className="flex items-center gap-2 text-[13px] md:text-[14px] font-medium" style={{ color: 'var(--text-secondary)' }}>
                                 <span>@ {cert.issuer}</span>
-                                <span className="text-gray-300">|</span>
+                                <span style={{ color: 'var(--cert-arrow)' }}>|</span>
                                 <span>{cert.date}</span>
                             </div>
                         </div>
 
                         {/* Arrow */}
-                        <div className="text-gray-300 group-hover:text-blue-600 transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1">
+                        <div className="group-hover:text-blue-600 transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: 'var(--cert-arrow)' }}>
                             <ArrowUpRight size={20} />
                         </div>
                     </a>

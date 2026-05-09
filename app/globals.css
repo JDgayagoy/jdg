@@ -1,8 +1,254 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
+/* ─── Light Mode (Default) ─── */
 :root {
-  --background: #0d0a1a;
-  --foreground: #ffffff;
+  --background: #FCFCFC;
+  --foreground: #1a1a1a;
+
+  /* Core */
+  --surface: #FCFCFC;
+  --surface-card: #FAFAFA;
+
+  /* Accent */
+  --accent: #8e9b42;
+
+  /* Text */
+  --text-heading: #454545;
+  --text-secondary: #888888;
+  --text-muted: #666666;
+  --text-paragraph: #444444;
+  --text-label: #454545;
+
+  /* Borders & Dividers */
+  --border-divider: rgba(229, 231, 235, 0.6);
+  --border-subtle: rgba(0, 0, 0, 0.03);
+  --border-card: rgba(0, 0, 0, 0.05);
+
+  /* Interactive – Orange */
+  --btn-orange-from: #fb923c;
+  --btn-orange-to: #ea580c;
+  --btn-orange-border: #f97316;
+  --btn-orange-shadow1: #c2410c;
+  --btn-orange-shadow2: #9a3412;
+  --btn-orange-text: #4a1a00;
+
+  /* Interactive – Blue */
+  --btn-blue-from: #4a6ff5;
+  --btn-blue-to: #2C53E8;
+  --btn-blue-border: #1f3fd4;
+  --btn-blue-shadow1: #1a35a8;
+  --btn-blue-shadow2: #122890;
+  --btn-blue-text: #ffffff;
+
+  /* Interactive – Green */
+  --btn-green-from: #5ef572;
+  --btn-green-to: #4AED60;
+  --btn-green-border: #35c44d;
+  --btn-green-shadow1: #28a83d;
+  --btn-green-shadow2: #1f8f32;
+  --btn-green-text: #0a4a17;
+
+  /* Interactive – Pink */
+  --btn-pink-from: #f470a0;
+  --btn-pink-to: #e8478a;
+  --btn-pink-border: #c93575;
+  --btn-pink-shadow1: #a32460;
+  --btn-pink-shadow2: #8a1a50;
+  --btn-pink-text: #4b1528;
+
+  /* Career / Misc */
+  --marker-active: #FF6B00;
+  --marker-subtitle: #777777;
+  --marker-date: #999999;
+  --slider-dot: #8a8a8a;
+  --slider-hover: #6a6a6a;
+  --footer-gradient: #7e7e7e;
+
+  /* Github contributions */
+  --gh-none: #f3f4f6;
+  --gh-q1: #e5e7eb;
+  --gh-q2: #d1d5db;
+  --gh-q3: #9ca3af;
+  --gh-q4: #6b7280;
+
+  /* Social hover */
+  --social-hover-bg: rgba(243, 244, 246, 1);
+  --social-icon-color: #888888;
+
+  /* Certification */
+  --cert-border: rgba(229, 231, 235, 1);
+  --cert-hover-bg: rgba(249, 250, 251, 0.5);
+  --cert-icon-bg: #ffffff;
+  --cert-icon-border: rgba(243, 244, 246, 1);
+  --cert-info-border: rgba(229, 231, 235, 1);
+  --cert-arrow: rgba(209, 213, 219, 1);
+
+  /* Footer */
+  --footer-social-bg: rgba(243, 244, 246, 1);
+  --footer-social-text: rgba(107, 114, 128, 1);
+  --footer-divider: rgba(229, 231, 235, 1);
+
+  /* Project slider */
+  --project-nav-bg: rgba(255, 255, 255, 0.9);
+  --project-nav-hover: #ffffff;
+  --project-nav-text: rgba(31, 41, 55, 1);
+  --project-overlay-bg: #ffffff;
+  --project-overlay-border: rgba(243, 244, 246, 1);
+  --project-techstack-text: #666666;
+  --project-techstack-tag: #888888;
+  --project-techstack-border: rgba(209, 213, 219, 0.8);
+  --project-showbtn-border: rgba(209, 213, 219, 0.8);
+  --project-showbtn-bg: rgba(229, 231, 235, 0.5);
+  --project-showbtn-hover: rgba(209, 213, 219, 0.5);
+  --project-showbtn-text: #888888;
+
+  /* Skills */
+  --skill-border: rgba(156, 163, 175, 1);
+  --skill-bg: rgba(42, 42, 42, 0.1);
+
+  /* Wave */
+  --wave-bg: #FCFCFC;
+  --wave-stroke: rgba(199, 199, 199, 0.9);
+
+  /* Blog/project page bg */
+  --page-bg: #FCFCFC;
+
+  /* Tooltip */
+  --tooltip-bg: rgba(24, 24, 27, 1);
+
+  /* Navbar */
+  --nav-bg: rgba(252, 252, 252, 0.7);
+  --nav-text: rgba(107, 114, 128, 1);
+  --nav-hover: rgba(156, 163, 175, 1);
+
+  /* NextJS icon fix for dark icons */
+  --icon-invert: 0;
+}
+
+/* ─── Dark Mode ─── */
+:root[data-theme="dark"] {
+  --background: #1a1a2e;
+  --foreground: #e8e8e8;
+
+  /* Core */
+  --surface: #242433;
+  --surface-card: #2a2a3a;
+
+  /* Accent */
+  --accent: #b5c842;
+
+  /* Text */
+  --text-heading: #d4d4d4;
+  --text-secondary: #909090;
+  --text-muted: #a0a0a0;
+  --text-paragraph: #c0c0c0;
+  --text-label: #d4d4d4;
+
+  /* Borders & Dividers */
+  --border-divider: rgba(46, 46, 62, 0.8);
+  --border-subtle: rgba(255, 255, 255, 0.04);
+  --border-card: rgba(255, 255, 255, 0.06);
+
+  /* Interactive – Orange */
+  --btn-orange-from: #fb923c;
+  --btn-orange-to: #ea580c;
+  --btn-orange-border: #f97316;
+  --btn-orange-shadow1: #c2410c;
+  --btn-orange-shadow2: #9a3412;
+  --btn-orange-text: #7a2800;
+
+  /* Interactive – Blue */
+  --btn-blue-from: #5a7ff7;
+  --btn-blue-to: #3d62f0;
+  --btn-blue-border: #2f50e0;
+  --btn-blue-shadow1: #1a35a8;
+  --btn-blue-shadow2: #122890;
+  --btn-blue-text: #f0f4ff;
+
+  /* Interactive – Green */
+  --btn-green-from: #6ef782;
+  --btn-green-to: #58f46e;
+  --btn-green-border: #40d855;
+  --btn-green-shadow1: #28a83d;
+  --btn-green-shadow2: #167a26;
+  --btn-green-text: #0a3a12;
+
+  /* Interactive – Pink */
+  --btn-pink-from: #f780b2;
+  --btn-pink-to: #ee5a99;
+  --btn-pink-border: #d4478a;
+  --btn-pink-shadow1: #a32460;
+  --btn-pink-shadow2: #8a1a50;
+  --btn-pink-text: #3a0d20;
+
+  /* Career / Misc */
+  --marker-active: #ff8533;
+  --marker-subtitle: #999999;
+  --marker-date: #707070;
+  --slider-dot: #6a6a6a;
+  --slider-hover: #8a8a8a;
+  --footer-gradient: #5a5a6a;
+
+  /* Github contributions */
+  --gh-none: #2a2a3a;
+  --gh-q1: #3a3a4a;
+  --gh-q2: #4a4a5a;
+  --gh-q3: #6a6a7a;
+  --gh-q4: #8a8a9a;
+
+  /* Social hover */
+  --social-hover-bg: rgba(42, 42, 58, 0.6);
+  --social-icon-color: #909090;
+
+  /* Certification */
+  --cert-border: rgba(46, 46, 62, 0.8);
+  --cert-hover-bg: rgba(42, 42, 58, 0.5);
+  --cert-icon-bg: #2a2a3a;
+  --cert-icon-border: rgba(46, 46, 62, 0.6);
+  --cert-info-border: rgba(46, 46, 62, 0.6);
+  --cert-arrow: rgba(100, 100, 120, 1);
+
+  /* Footer */
+  --footer-social-bg: rgba(42, 42, 58, 0.6);
+  --footer-social-text: rgba(144, 144, 160, 1);
+  --footer-divider: rgba(46, 46, 62, 0.6);
+
+  /* Project slider */
+  --project-nav-bg: rgba(36, 36, 51, 0.9);
+  --project-nav-hover: rgba(42, 42, 58, 1);
+  --project-nav-text: rgba(212, 212, 212, 1);
+  --project-overlay-bg: #242433;
+  --project-overlay-border: rgba(46, 46, 62, 0.6);
+  --project-techstack-text: #a0a0a0;
+  --project-techstack-tag: #909090;
+  --project-techstack-border: rgba(70, 70, 90, 0.8);
+  --project-showbtn-border: rgba(70, 70, 90, 0.8);
+  --project-showbtn-bg: rgba(42, 42, 58, 0.5);
+  --project-showbtn-hover: rgba(50, 50, 66, 0.5);
+  --project-showbtn-text: #909090;
+
+  /* Skills */
+  --skill-border: rgba(100, 100, 120, 1);
+  --skill-bg: rgba(255, 255, 255, 0.05);
+
+  /* Wave */
+  --wave-bg: #1a1a2e;
+  --wave-stroke: rgba(80, 80, 100, 0.5);
+
+  /* Blog/project page bg */
+  --page-bg: #1a1a2e;
+
+  /* Tooltip */
+  --tooltip-bg: rgba(42, 42, 58, 1);
+
+  /* Navbar */
+  --nav-bg: rgba(26, 26, 46, 0.8);
+  --nav-text: rgba(144, 144, 160, 1);
+  --nav-hover: rgba(180, 180, 200, 1);
+
+  /* NextJS icon fix for dark icons */
+  --icon-invert: 1;
 }
 
 @theme inline {
@@ -12,13 +258,6 @@
   --font-mono: var(--font-geist-mono);
   --font-jakarta: var(--font-plus-jakarta-sans);
   --font-poppins: var(--font-poppins);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0d0a1a;
-    --foreground: #ffffff;
-  }
 }
 
 @layer utilities {
@@ -36,6 +275,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 html,

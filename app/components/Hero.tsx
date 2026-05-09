@@ -4,7 +4,8 @@ import Image from "next/image";
 export default function Hero() {
     return (
         <section
-            className="relative top-20 flex flex-col h-60 w-full  items-center justify-center font-sans overflow-hidden border-b border-gray-200/40"
+            className="relative top-[72px] flex flex-col h-60 w-full items-center justify-center font-sans overflow-hidden border-b transition-colors duration-300"
+            style={{ borderColor: 'var(--border-divider)' }}
         >
             <WaveBackground />
 

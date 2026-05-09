@@ -12,7 +12,7 @@ import Footer from "./components/Footer";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-[#FCFCFC]">
+    <div className="flex flex-col flex-1 items-center justify-center font-sans transition-colors duration-300" style={{ backgroundColor: 'var(--page-bg)' }}>
       <main className="relative top-0 h-full flex flex-1 w-full max-w-3xl flex-col items-center sm:items-start">
         <Navbar />
         <Hero />

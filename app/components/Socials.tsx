@@ -1,10 +1,12 @@
+"use client";
 
 
 export default function Socials() {
     const socials = [
         {
             label: "LinkedIn",
-            handle: "/in/jdgayagoy",
+            href: "https://linkedin.com/in/johndavidgayagoy",
+            handle: "/in/johndavidgayagoy",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
@@ -13,7 +15,8 @@ export default function Socials() {
         },
         {
             label: "Twitter",
-            handle: "@jdgayagoy",
+            href: "https://twitter.com/jdgayagoy",
+            handle: "@hiimdabido",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -22,6 +25,7 @@ export default function Socials() {
         },
         {
             label: "Github",
+            href: "https://github.com/jdgayagoy",
             handle: "/jdgayagoy",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -30,44 +34,49 @@ export default function Socials() {
             ),
         },
         {
-            label: "Youtube",
-            handle: "/jdgayagoy",
+            label: "Facebook",
+            href: "https://facebook.com/jaydeegayagoy",
+            handle: "/jaydeegayagoy",
             icon: (
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
                 </svg>
             ),
         },
     ];
     return (
         <div className="relative min-h-12 h-auto w-full px-4 py-2 flex flex-wrap justify-center items-center gap-2 md:gap-4" >
-            {socials.map(({ label, icon, handle }) => (
-                <button
+            {socials.map(({ label, icon, handle, href }) => (
+                <a
                     key={label}
-                    className="group relative flex items-center gap-1.5 px-3 py-1.5 cursor-pointer select-none transition-all duration-75 hover:bg-gray-100 text-[15px] md:text-[19px] rounded-lg"
+                    href={href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative flex items-center gap-1.5 px-3 py-1.5 cursor-pointer select-none transition-all duration-75 text-[15px] md:text-[19px] rounded-lg no-underline"
                     style={{
-                        color: "#888",
+                        color: "var(--social-icon-color)",
                         background: "transparent",
                         fontFamily: "Inter, system-ui, sans-serif",
                         fontWeight: 600,
-                        filter: "blur(0.4px)",
                     }}
+                    onMouseEnter={(e) => (e.currentTarget.style.background = "var(--social-hover-bg)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.background = "transparent")}
                 >
                     {/* Tooltip */}
-                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 bg-zinc-900 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0 z-50">
+                    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 px-3 py-1.5 text-white text-[12px] font-medium rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 pointer-events-none whitespace-nowrap shadow-xl translate-y-2 group-hover:translate-y-0 z-50" style={{ backgroundColor: 'var(--tooltip-bg)' }}>
                         {handle}
                         {/* Tooltip Arrow */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent border-t-zinc-900" />
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 border-[6px] border-transparent" style={{ borderTopColor: 'var(--tooltip-bg)' }} />
                     </div>
 
                     <div className="relative z-10 flex items-center gap-1.5">
                         {icon}
                         {label}
                     </div>
-                </button>
+                </a>
             ))}
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent" />
+            <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
+            <div className="absolute top-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
         </div>
     );
 }   

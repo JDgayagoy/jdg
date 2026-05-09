@@ -8,7 +8,7 @@ export default function WaveBackground() {
       preserveAspectRatio="none"
       viewBox="0 0 800 240"
     >
-      <rect width="800" height="240" fill="#FCFCFC" />
+
       {lines.map((_, i) => {
         const y = (i / (lines.length - 1)) * 240;
         const amp = 5 + Math.sin(i * 1.3) * 0.2;
@@ -29,7 +29,7 @@ export default function WaveBackground() {
             key={i}
             points={points.join(" ")}
             fill="none"
-            stroke="rgba(199,199,199,0.9)"
+            style={{ stroke: 'var(--wave-stroke)' }}
             strokeWidth="0.4"
             strokeLinecap="round"
             strokeLinejoin="round"
