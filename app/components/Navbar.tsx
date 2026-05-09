@@ -57,24 +57,6 @@ export default function Navbar() {
                     <li><a href="#" className="hover:text-gray-400 transition text-sm font-bold">blogs</a></li>
                     <li>
                         <button
-                            onClick={() => setIsDark(!isDark)}
-                            className="hover:text-gray-400 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
-                        >
-                            <AnimatePresence mode="wait" initial={false}>
-                                <motion.div
-                                    key={isDark ? "moon" : "sun"}
-                                    initial={{ scale: 0.5, opacity: 0, rotate: -90 }}
-                                    animate={{ scale: 1, opacity: 1, rotate: 0 }}
-                                    exit={{ scale: 0.5, opacity: 0, rotate: 90 }}
-                                    transition={{ duration: 0.2, ease: "easeInOut" }}
-                                >
-                                    {isDark ? <Moon size={19} /> : <Sun size={19} />}
-                                </motion.div>
-                            </AnimatePresence>
-                        </button>
-                    </li>
-                    <li>
-                        <button
                             onClick={() => setIsMuted(!isMuted)}
                             className="hover:text-gray-400 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
                         >

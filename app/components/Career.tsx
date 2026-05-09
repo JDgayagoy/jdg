@@ -38,7 +38,7 @@ export default function Career() {
     const [activeMarker, setActiveMarker] = useState<number | null>(1);
 
     const playSound = () => {
-        const audio = new Audio('/sound/New_project.wav');
+        const audio = new Audio('/sound/New_Project.wav');
         audio.play().catch(e => console.error("Audio play failed:", e));
     };
 

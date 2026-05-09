@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export default function Footer() {
     const playSound = () => {
-        const audio = new Audio('/sound/New_project.wav');
+        const audio = new Audio('/sound/New_Project.wav');
         audio.play().catch(e => console.error("Audio play failed:", e));
     };
     const socials = [
