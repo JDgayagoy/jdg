@@ -24,8 +24,8 @@ export default function ProjectList({ projects }: { projects: ProjectType[] }) {
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                        <div className="absolute top-4 left-4 flex flex-wrap gap-2">
-                            {project.techStack.slice(0, 3).map((tech) => (
+                        <div className="absolute top-4 left-4 flex flex-wrap gap-2 max-w-[80%]">
+                            {project.techStack.map((tech) => (
                                 <span 
                                     key={tech} 
                                     className="backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-bold shadow-sm transition-colors duration-300"
@@ -50,31 +50,49 @@ export default function ProjectList({ projects }: { projects: ProjectType[] }) {
                         {project.title}
                     </h2>
 
-                    <p className="leading-relaxed mb-6 line-clamp-2 transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
+                    <p className="leading-relaxed mb-4 transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
                         {project.description}
                     </p>
 
+                    {project.features && (
+                        <div className="mb-6 space-y-2">
+                            <h4 className="text-[12px] font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--text-label)' }}>Key Features</h4>
+                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-1">
+                                {project.features.map((feature, i) => (
+                                    <li key={i} className="text-[13px] flex items-start gap-2" style={{ color: 'var(--text-secondary)' }}>
+                                        <span className="mt-1.5 w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: 'var(--accent)' }} />
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+
                     <div className="flex items-center gap-6">
-                        <a
-                            href={project.website}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 font-bold text-sm group-hover:gap-3 transition-all duration-300 no-underline"
-                            style={{ color: 'var(--accent)' }}
-                        >
-                            Live Demo <Globe size={16} />
-                        </a>
-                        <a
-                            href={project.source}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center gap-2 font-bold text-sm transition-all duration-300 no-underline"
-                            style={{ color: 'var(--text-secondary)' }}
-                            onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
-                            onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
-                        >
-                            Source Code <ArrowRight size={16} />
-                        </a>
+                        {project.website !== "#" && project.website !== "none" && (
+                            <a
+                                href={project.website}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 font-bold text-sm group-hover:gap-3 transition-all duration-300 no-underline"
+                                style={{ color: 'var(--accent)' }}
+                            >
+                                Live Demo <Globe size={16} />
+                            </a>
+                        )}
+                        {project.source !== "#" && project.source !== "private" && (
+                            <a
+                                href={project.source}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-2 font-bold text-sm transition-all duration-300 no-underline"
+                                style={{ color: 'var(--text-secondary)' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.color = 'var(--accent)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.color = 'var(--text-secondary)')}
+                            >
+                                Source Code <ArrowRight size={16} />
+                            </a>
+                        )}
                     </div>
                 </motion.article>
             ))}

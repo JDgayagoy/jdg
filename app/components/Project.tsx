@@ -84,14 +84,18 @@ export default function Project() {
                                         {currentProject.description}
                                     </p>
                                     <div className="flex items-center gap-6">
-                                        <a href={currentProject.website} className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
-                                            <Globe size={18} />
-                                            <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Website</span>
-                                        </a>
-                                        <a href={currentProject.source} className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
-                                            <Globe size={18} />
-                                            <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Source</span>
-                                        </a>
+                                        {currentProject.website !== "#" && currentProject.website !== "none" && (
+                                            <a href={currentProject.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
+                                                <Globe size={18} />
+                                                <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Website</span>
+                                            </a>
+                                        )}
+                                        {currentProject.source !== "#" && currentProject.source !== "private" && (
+                                            <a href={currentProject.source} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
+                                                <Globe size={18} />
+                                                <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Source</span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 
