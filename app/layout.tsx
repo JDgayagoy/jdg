@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Plus_Jakarta_Sans, Poppins } from "next/font/google";
 import "./globals.css";
+import { Analytics } from '@vercel/analytics/next';
 import { ThemeProvider } from "./context/ThemeContext";
 
 const geistSans = Geist({
@@ -42,6 +43,7 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} ${plusJakartaSans.variable} ${poppins.variable} h-full antialiased`}
     >
+      <Analytics />
       <body className="min-h-full flex flex-col">
         <ThemeProvider>{children}</ThemeProvider>
       </body>
