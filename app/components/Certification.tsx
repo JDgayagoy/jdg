@@ -6,6 +6,13 @@ import { ArrowUpRight } from 'lucide-react';
 
 const CERTIFICATIONS = [
     {
+        title: "Certificate of Participation",
+        issuer: "CodeKada: The Online Hackathon - DevKada",
+        date: "May 2026",
+        icon: <Image src="/images/devkada.jpg" alt="DevKada" width={48} height={48} className="object-cover" />,
+        link: "#"
+    },
+    {
         title: "Civil Service Eligible Professional",
         issuer: "Passed Civil Service Examination - Professional Level",
         date: "March 2025",
