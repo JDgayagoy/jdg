@@ -55,7 +55,7 @@ export const PROJECTS: ProjectType[] = [
             "Practical Coding Challenges: Real-world tasks you might face",
             "Export to PDF: Save your preparation guide for offline study"
         ],
-        image: "/images/cookme.jpg",
+        image: "/images/projects/cookme.png",
         gradient: "from-orange-500 via-pink-500 to-indigo-600",
         website: "https://cookme-orpin.vercel.app/",
         source: "https://github.com/JDgayagoy/CookMe",
