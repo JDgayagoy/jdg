@@ -21,6 +21,8 @@ export default function ProjectList({ projects }: { projects: ProjectType[] }) {
                             src={project.image}
                             alt={project.title}
                             fill
+                            sizes="(max-width: 768px) 100vw, 768px"
+                            priority={index === 0}
                             className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
