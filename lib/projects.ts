@@ -21,7 +21,7 @@ export const PROJECTS: ProjectType[] = [
             "PWA Support: Fully installable with service worker and offline manifest",
             "Progressive Difficulty: Multiple cases from Easy to Hard with interactive tutorial"
         ],
-        image: "/images/toco.jpg",
+        image: "/images/projects/toco.png",
         gradient: "from-purple-600 via-indigo-500 to-blue-400",
         website: "https://toco-game.vercel.app/",
         source: "https://github.com/Spod101/batilpatong",
@@ -38,7 +38,7 @@ export const PROJECTS: ProjectType[] = [
             "Settlement Matrix: See who owes whom at a glance",
             "Mobile Responsive: Works great on all devices"
         ],
-        image: "/images/utangph.jpg",
+        image: "/images/projects/utangph.png",
         gradient: "from-orange-500 via-pink-500 to-indigo-600",
         website: "https://utangph.vercel.app/",
         source: "https://github.com/JDgayagoy/utangph",
@@ -85,7 +85,7 @@ export const PROJECTS: ProjectType[] = [
         id: 6,
         title: "Travel Ops",
         description: "A SAAS built for Batanes travel agencies to manage their tours and reservations. Currently deployed to local agencies, streamlining their booking and operations.",
-        image: "/images/travelops.jpg",
+        image: "/images/projects/travelops.png",
         gradient: "from-blue-600 via-cyan-500 to-indigo-400",
         website: "https://travel-operations-alpha.vercel.app/",
         source: "#",
