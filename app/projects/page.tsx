@@ -7,8 +7,19 @@ import ProjectList from "./ProjectList";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Projects | jaydeegayagoy",
-    description: "A showcase of my recent work, from web applications to automation tools.",
+    title: "Projects",
+    description: "A showcase of John David Gayagoy's recent work — web applications, automation tools, and robotics projects.",
+    openGraph: {
+        title: "Projects | John David Gayagoy",
+        description: "A showcase of John David Gayagoy's recent work — web applications, automation tools, and robotics projects.",
+        url: "https://jdgayagoy.is-a.dev/projects",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Projects | John David Gayagoy",
+        description: "A showcase of John David Gayagoy's recent work — web applications, automation tools, and robotics projects.",
+    },
 };
 
 export default function ProjectsPage() {
