@@ -7,18 +7,20 @@ import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
 import Link from "next/link";
 
+const FEATURED = PROJECTS.filter(p => p.featured);
+
 export default function Project() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextProject = () => {
-        setCurrentIndex((prev) => (prev === PROJECTS.length - 1 ? 0 : prev + 1));
+        setCurrentIndex((prev) => (prev === FEATURED.length - 1 ? 0 : prev + 1));
     };
 
     const prevProject = () => {
-        setCurrentIndex((prev) => (prev === 0 ? PROJECTS.length - 1 : prev - 1));
+        setCurrentIndex((prev) => (prev === 0 ? FEATURED.length - 1 : prev - 1));
     };
 
-    const currentProject = PROJECTS[currentIndex];
+    const currentProject = FEATURED[currentIndex];
 
     return (
         <section className="relative w-full px-4 flex flex-col items-center mt-8">
@@ -118,7 +120,7 @@ export default function Project() {
 
             {/* Dots */}
             <div className="flex items-center justify-center gap-2.5 mt-6">
-                {PROJECTS.map((_, idx) => (
+                {FEATURED.map((_, idx) => (
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}

@@ -8,6 +8,7 @@ export interface ProjectType {
     website: string;
     source: string;
     techStack: string[];
+    featured?: boolean;
 }
 
 export const PROJECTS: ProjectType[] = [
@@ -47,6 +48,7 @@ export const PROJECTS: ProjectType[] = [
     {
         id: 3,
         title: "CookMe",
+        featured: true,
         description: "AI Interview Prep Generator. An intelligent web application that helps you prepare for technical interviews by analyzing job descriptions and your resume.",
         features: [
             "Tech Stack Extraction: Automatically identifies core technologies from job postings",
@@ -84,6 +86,7 @@ export const PROJECTS: ProjectType[] = [
     {
         id: 6,
         title: "Travel Ops",
+        featured: true,
         description: "A SAAS built for Batanes travel agencies to manage their tours and reservations. Currently deployed to local agencies, streamlining their booking and operations.",
         image: "/images/projects/travelops.png",
         gradient: "from-blue-600 via-cyan-500 to-indigo-400",
@@ -138,6 +141,7 @@ export const PROJECTS: ProjectType[] = [
     {
         id: 9,
         title: "Visit Batanes",
+        featured: true,
         description: "A travel agency website showcasing the beauty, culture, and attractions of Batanes while helping travelers discover destinations, tour packages, and travel experiences.",
         features: [
             "Destination Showcase: Explore Batanes' iconic landscapes, attractions, and cultural landmarks",
