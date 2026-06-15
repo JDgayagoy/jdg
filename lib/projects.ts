@@ -90,5 +90,72 @@ export const PROJECTS: ProjectType[] = [
         website: "https://travel-operations-alpha.vercel.app/",
         source: "#",
         techStack: ["Laravel", "PHP", "MySQL", "TailwindCSS", "AlpineJS", "Livewire", "Vercel", "GitHub Actions"]
-    }
+    },
+    {
+        id: 7,
+        title: "DigiTalino",
+        description: "A cross-platform digital literacy mobile application developed for the #DigiTalinong Cagayano extension project. DigiTalino helps users build digital media and information literacy skills while promoting responsible and ethical digital citizenship.",
+        features: [
+            "Interactive Learning Modules: Access educational content on digital literacy and responsible online behavior",
+            "User Authentication: Secure account management and personalized learning progress",
+            "Digital Media Literacy Training: Learn how to evaluate, verify, and use online information responsibly",
+            "Cross-Platform Mobile Experience: Seamless support for both Android and iOS devices",
+            "Community-Focused Education: Designed for youth, educators, senior citizens, and other community groups"
+        ],
+        image: "/images/projects/digitalino.png",
+        gradient: "from-blue-500 via-cyan-500 to-emerald-500",
+        website: "#", // replace if available
+        source: "https://github.com/JDgayagoy/DigiTalino",
+        techStack: [
+            "React Native",
+            "Expo",
+            "TypeScript",
+            "JavaScript",
+            "Node.js",
+            "Express",
+            "MongoDB"
+        ]
+    },
+    {
+        id: 8,
+        title: "Telehealth Pro",
+        description: "A full-stack telemedicine platform that connects patients and healthcare providers through secure appointment scheduling, medical record management, and real-time video consultations.",
+        image: "/images/projects/telehealth.png",
+        gradient: "from-cyan-500 via-emerald-500 to-blue-600",
+        website: "https://wc-telehealth-nu.vercel.app/", // replace if available
+        source: "https://github.com/JDgayagoy/wc-telehealth", // replace if available
+        techStack: [
+            "Next.js 14",
+            "NestJS",
+            "PostgreSQL",
+            "Prisma",
+            "Socket.io",
+            "JWT",
+            "Tailwind CSS",
+            "Shadcn UI"
+        ]
+    },
+    {
+        id: 9,
+        title: "Visit Batanes",
+        description: "A travel agency website showcasing the beauty, culture, and attractions of Batanes while helping travelers discover destinations, tour packages, and travel experiences.",
+        features: [
+            "Destination Showcase: Explore Batanes' iconic landscapes, attractions, and cultural landmarks",
+            "Tour Package Listings: Browse curated travel packages and itineraries",
+            "Responsive Design: Optimized experience across desktop, tablet, and mobile devices",
+            "Inquiry & Booking System: Easily connect with travel agents for trip planning and reservations",
+            "Photo Gallery: Immersive visuals highlighting the natural beauty of Batanes"
+        ],
+        image: "/images/projects/northernisland.png",
+        gradient: "from-sky-500 via-blue-500 to-emerald-500",
+        website: "#", // replace if available
+        source: "#", // replace if available
+        techStack: [
+            "Next.js",
+            "TypeScript",
+            "Tailwind CSS",
+            "React",
+            "Vercel"
+        ]
+    },
 ];
