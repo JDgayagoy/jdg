@@ -58,7 +58,7 @@ export const PROJECTS: ProjectType[] = [
             "Export to PDF: Save your preparation guide for offline study"
         ],
         image: "/images/projects/cookme.png",
-        gradient: "from-orange-500 via-pink-500 to-indigo-600",
+        gradient: "from-purple-600 via-indigo-500 to-blue-400",
         website: "https://cookme-orpin.vercel.app/",
         source: "https://github.com/JDgayagoy/CookMe",
         techStack: ["Next.js", "TypeScript", "Supabase", "TailwindCSS", "Vercel", "GitHub Actions"]
@@ -89,7 +89,7 @@ export const PROJECTS: ProjectType[] = [
         featured: true,
         description: "A SAAS built for Batanes travel agencies to manage their tours and reservations. Currently deployed to local agencies, streamlining their booking and operations.",
         image: "/images/projects/travelops.png",
-        gradient: "from-blue-600 via-cyan-500 to-indigo-400",
+        gradient: "from-purple-600 via-indigo-500 to-blue-400",
         website: "https://travel-operations-alpha.vercel.app/",
         source: "#",
         techStack: ["Laravel", "PHP", "MySQL", "TailwindCSS", "AlpineJS", "Livewire", "Vercel", "GitHub Actions"]
@@ -151,7 +151,7 @@ export const PROJECTS: ProjectType[] = [
             "Photo Gallery: Immersive visuals highlighting the natural beauty of Batanes"
         ],
         image: "/images/projects/northernisland.png",
-        gradient: "from-sky-500 via-blue-500 to-emerald-500",
+        gradient: "from-purple-600 via-indigo-500 to-blue-400",
         website: "#", // replace if available
         source: "#", // replace if available
         techStack: [

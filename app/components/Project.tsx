@@ -81,10 +81,7 @@ export default function Project() {
                             <div className="absolute inset-x-0 bottom-0 z-10 pointer-events-none">
                                 {/* Dark Gradient Overlay */}
                                 <div className="pt-32 pb-6 md:pb-8 px-6 md:px-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end text-white transition-transform duration-300 ease-out group-hover:-translate-y-[88px] pointer-events-auto">
-                                    <h3 className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{currentProject.title}</h3>
-                                    <p className="text-[13px] md:text-[15px] text-gray-200 mb-4 md:mb-6 max-w-2xl leading-relaxed">
-                                        {currentProject.description}
-                                    </p>
+                                    <h3 className="text-2xl md:text-4xl font-bold mb-4 md:mb-6">{currentProject.title}</h3>
                                     <div className="flex items-center gap-6">
                                         {currentProject.website !== "#" && currentProject.website !== "none" && (
                                             <a href={currentProject.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
