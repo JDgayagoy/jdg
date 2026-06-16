@@ -1,9 +1,9 @@
 import { Bot, Network } from "lucide-react";
 
-const skillsList = [
-    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript" },
-    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript" },
-    { name: "Python", icon: "https://cdn.simpleicons.org/python" },
+const skillsList: { name: string; icon: string; noInvert?: boolean; medal?: string }[] = [
+    { name: "JavaScript", icon: "https://cdn.simpleicons.org/javascript", medal: "🥇" },
+    { name: "TypeScript", icon: "https://cdn.simpleicons.org/typescript", medal: "🥇" },
+    { name: "Python", icon: "https://cdn.simpleicons.org/python", medal: "🥇" },
     { name: "TailwindCSS", icon: "https://cdn.simpleicons.org/tailwindcss" },
     { name: "ReactJS", icon: "https://cdn.simpleicons.org/react" },
     { name: "NextJS", icon: "https://cdn.simpleicons.org/nextdotjs/000000" },
@@ -20,7 +20,7 @@ const skillsList = [
     { name: "Electron", icon: "https://cdn.simpleicons.org/electron" },
     { name: "Odoo", icon: "https://cdn.simpleicons.org/odoo" },
     { name: "C++", icon: "https://cdn.simpleicons.org/cplusplus" },
-    { name: "C#", icon: "https://cdn.simpleicons.org/csharp" },
+    { name: "C#", icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg", noInvert: true, medal: "🥇" },
     { name: "Git", icon: "https://cdn.simpleicons.org/git" },
     { name: "GitLab", icon: "https://cdn.simpleicons.org/gitlab" },
     { name: "Machine Learning", icon: "bot" },
@@ -57,12 +57,13 @@ export default function Skills() {
                                     src={skill.icon}
                                     alt={skill.name}
                                     className="w-4 h-4 object-contain"
-                                    style={{ filter: `invert(var(--icon-invert))` }}
+                                    style={skill.noInvert ? undefined : { filter: `invert(var(--icon-invert))` }}
                                 />
                             )}
                             <span className="text-[12px] font-bold font-sans transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
                                 {skill.name}
                             </span>
+                            {skill.medal && <span className="text-[10px] leading-none">{skill.medal}</span>}
                         </div>
                     ))}
                 </div>
