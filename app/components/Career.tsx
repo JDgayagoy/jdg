@@ -11,7 +11,7 @@ const MARKERS = [
         top: "1%",
         title: "Cagayan State University - Carig Campus",
         subtitle: "Bachelor of Science in Computer Science",
-        date: "May 2026",
+        date: "October 2022 -May 2026",
         image: "/images/csu.jpg",
     },
     {
