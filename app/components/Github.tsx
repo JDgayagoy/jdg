@@ -17,7 +17,15 @@ interface GitHubData {
 export default function Github() {
     const [data, setData] = useState<GitHubData | null>(null);
     const [loading, setLoading] = useState(true);
-    const months = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"];
+
+    const months = useMemo(() => {
+        const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        const now = new Date();
+        return Array.from({ length: 10 }, (_, i) => {
+            const d = new Date(now.getFullYear(), now.getMonth() - 9 + i, 1);
+            return names[d.getMonth()];
+        });
+    }, []);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +39,6 @@ export default function Github() {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
 
@@ -46,62 +53,55 @@ export default function Github() {
         }
     };
 
-    const flattenedContributions = useMemo(() => {
+    // Last 26 weeks (≈6 months), keeping only complete weeks from the end
+    const recentContributions = useMemo(() => {
         if (!data) return [];
-        return data.contributions.flat();
+        const flat = data.contributions.flat();
+        return flat.slice(-43 * 7);
     }, [data]);
 
     return (
         <section className="relative py-4 px-4 w-full flex flex-col items-center">
-            {/* Border Overlays */}
             <div className="absolute -top-[70%] left-0 h-[120%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
             <div className="absolute -top-[70%] right-0 h-[120%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-px pointer-events-none" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
 
             <div className="w-full max-w-3xl flex flex-col items-start mt-8">
-                {/* Header */}
                 <span className="text-[14px] font-jakarta" style={{ color: 'var(--accent)' }}>Contributions</span>
                 <h2 className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 mb-6 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Github</h2>
 
-                {/* Calendar Container */}
-                <div className="w-full overflow-x-auto pb-4 custom-scrollbar overflow-hidden">
-                    <div className="min-w-[700px]">
-                        {/* Months Labels */}
-                        <div className="flex mb-2 text-[11px] font-medium" style={{ color: 'var(--accent)', opacity: 0.8 }}>
-                            {months.map((month, i) => (
-                                <div key={i} className="flex-1 text-center">{month}</div>
-                            ))}
-                        </div>
+                <div className="w-full">
+                    {/* Month labels */}
+                    <div className="flex mb-2 text-[11px] font-medium" style={{ color: 'var(--accent)', opacity: 0.8 }}>
+                        {months.map((month, i) => (
+                            <div key={i} className="flex-1 text-center">{month}</div>
+                        ))}
+                    </div>
 
-                        {/* Grid */}
-                        <div className="grid grid-flow-col grid-rows-7 gap-1 h-[110px] overflow-hidden">
-                            {loading ? (
-                                // Skeleton loader
-                                Array.from({ length: 364 }).map((_, i) => (
-                                    <div key={i} className="w-[12px] h-[12px] rounded-xs animate-pulse" style={{ backgroundColor: 'var(--gh-none)' }} />
-                                ))
-                            ) : (
-                                flattenedContributions.map((day, i) => (
-                                    <div
-                                        key={i}
-                                        className="w-[12px] h-[12px] rounded-xs transition-colors duration-300 hover:scale-110"
-                                        style={{ backgroundColor: getColorVar(day.contributionLevel) }}
-                                        title={`${day.contributionCount} contributions on ${day.date}`}
-                                    />
-                                ))
-                            )}
-                        </div>
+                    {/* Grid */}
+                    <div className="grid grid-flow-col grid-rows-7 gap-1 h-[110px]">
+                        {loading ? (
+                            Array.from({ length: 43 * 7 }).map((_, i) => (
+                                <div key={i} className="w-[12px] h-[12px] rounded-xs animate-pulse" style={{ backgroundColor: 'var(--gh-none)' }} />
+                            ))
+                        ) : (
+                            recentContributions.map((day, i) => (
+                                <div
+                                    key={i}
+                                    className="w-[12px] h-[12px] rounded-xs transition-colors duration-300 hover:scale-110"
+                                    style={{ backgroundColor: getColorVar(day.contributionLevel) }}
+                                    title={`${day.contributionCount} contributions on ${day.date}`}
+                                />
+                            ))
+                        )}
                     </div>
                 </div>
 
-                {/* Footer Info */}
                 {!loading && data && (
-                    <div className="w-full flex items-center justify-between mt-0 text-[13px] overflow-hidden transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
+                    <div className="w-full flex items-center justify-between mt-2 text-[13px] transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
                         <div>
                             {data.totalContributions} contributions in the last year on <a href="https://github.com/JDgayagoy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub</a>.
                         </div>
-
-                        {/* Legend */}
                         <div className="flex items-center gap-1.5">
                             <span className="text-[11px]">Less</span>
                             <div className="flex gap-1">
