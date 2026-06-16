@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Globe } from "lucide-react";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
-import Link from "next/link";
+import { ImagesBadge } from "@/components/ui/images-badge";
 
 const FEATURED = PROJECTS.filter(p => p.featured);
 
@@ -134,18 +134,14 @@ export default function Project() {
                 ))}
             </div>
 
-            {/* Show All Button */}
-            <Link
-                href="/projects"
-                className="mt-4 px-6 mb-5 py-2.5 rounded-[10px] border-2 font-bold text-sm transition-colors no-underline"
-                style={{
-                    borderColor: 'var(--project-showbtn-border)',
-                    backgroundColor: 'var(--project-showbtn-bg)',
-                    color: 'var(--project-showbtn-text)',
-                }}
-            >
-                Show All Projects
-            </Link>
+            {/* View Projects Button */}
+            <div className="mt-8 mb-5">
+                <ImagesBadge
+                    text="View Projects"
+                    images={FEATURED.map(p => p.image)}
+                    href="/projects"
+                />
+            </div>
         </section>
     );
 }

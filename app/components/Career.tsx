@@ -31,6 +31,15 @@ const MARKERS = [
         subtitle: "Commercial Technology Intern",
         date: "December 2025 - February 2026",
         image: "/images/gs.webp",
+    },
+    {
+        id: 4,
+        left: "56.48%",
+        top: "40.11%",
+        title: "WhiteCloak Launchpad Program",
+        subtitle: "Software Engineer Track Participant",
+        date: "May 2026 - June 2026",
+        image: "/images/whitecloak.png",
     }
 ];
 
@@ -105,7 +114,7 @@ export default function Career() {
                         return (
                             <div
                                 key={marker.id}
-                                className="absolute -translate-x-1/2 -translate-y-full flex flex-col items-center z-20 group cursor-pointer"
+                                className={`absolute -translate-x-1/2 -translate-y-full flex flex-col items-center ${isActive ? 'z-50' : marker.id === 1 ? 'z-30' : 'z-20'} group cursor-pointer`}
                                 style={{ left: marker.left, top: marker.top }}
                                 onClick={() => setActiveMarker(isActive ? null : marker.id)}
                             >
