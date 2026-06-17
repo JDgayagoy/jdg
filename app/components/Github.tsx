@@ -17,15 +17,37 @@ interface GitHubData {
 export default function Github() {
     const [data, setData] = useState<GitHubData | null>(null);
     const [loading, setLoading] = useState(true);
+    const WEEKS = 46; // try 48, 52, or 53
 
-    const months = useMemo(() => {
+    const monthPositions = useMemo(() => {
+        if (!data) return [];
+
         const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
-        const now = new Date();
-        return Array.from({ length: 10 }, (_, i) => {
-            const d = new Date(now.getFullYear(), now.getMonth() - 9 + i, 1);
-            return names[d.getMonth()];
-        });
-    }, []);
+        const flat = data.contributions.flat().slice(-WEEKS * 7);
+
+        const positions: { label: string; col: number }[] = [];
+        let lastMonth = -1;
+
+        for (let col = 0; col < WEEKS; col++) {
+            const day = flat[col * 7];
+            if (!day) break;
+
+            const month = parseInt(day.date.slice(5, 7), 10) - 1;
+
+            if (col === 0) {
+                positions.push({ label: names[month], col: 0 });
+                lastMonth = month;
+                continue;
+            }
+
+            if (month !== lastMonth) {
+                positions.push({ label: names[month], col });
+                lastMonth = month;
+            }
+        }
+
+        return positions;
+    }, [data]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -56,8 +78,7 @@ export default function Github() {
     // Last 26 weeks (≈6 months), keeping only complete weeks from the end
     const recentContributions = useMemo(() => {
         if (!data) return [];
-        const flat = data.contributions.flat();
-        return flat.slice(-43 * 7);
+        return data.contributions.flat().slice(-WEEKS * 7);
     }, [data]);
 
     return (
@@ -70,30 +91,59 @@ export default function Github() {
                 <span className="text-[14px] font-jakarta" style={{ color: 'var(--accent)' }}>Contributions</span>
                 <h2 className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 mb-6 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Github</h2>
 
-                <div className="w-full">
-                    {/* Month labels */}
-                    <div className="flex mb-2 text-[11px] font-medium" style={{ color: 'var(--accent)', opacity: 0.8 }}>
-                        {months.map((month, i) => (
-                            <div key={i} className="flex-1 text-center">{month}</div>
-                        ))}
-                    </div>
-
-                    {/* Grid */}
-                    <div className="grid grid-flow-col grid-rows-7 gap-1 h-[110px]">
-                        {loading ? (
-                            Array.from({ length: 43 * 7 }).map((_, i) => (
-                                <div key={i} className="w-[12px] h-[12px] rounded-xs animate-pulse" style={{ backgroundColor: 'var(--gh-none)' }} />
-                            ))
-                        ) : (
-                            recentContributions.map((day, i) => (
+                <div className="w-full overflow-x-auto no-scrollbar">
+                    <div className="w-full">
+                        {/* Month labels */}
+                        <div
+                            className="grid mb-2 text-[11px] font-medium"
+                            style={{
+                                gridTemplateColumns: `repeat(${WEEKS}, 12px)`,
+                                columnGap: '4px',
+                                color: 'var(--accent)',
+                                opacity: 0.8,
+                            }}
+                        >
+                            {monthPositions.map(({ label, col }) => (
                                 <div
-                                    key={i}
-                                    className="w-[12px] h-[12px] rounded-xs transition-colors duration-300 hover:scale-110"
-                                    style={{ backgroundColor: getColorVar(day.contributionLevel) }}
-                                    title={`${day.contributionCount} contributions on ${day.date}`}
-                                />
-                            ))
-                        )}
+                                    key={col}
+                                    className="whitespace-nowrap"
+                                    style={{
+                                        gridColumnStart: col + 1,
+                                    }}
+                                >
+                                    {label}
+                                </div>
+                            ))}
+                        </div>
+
+                        {/* Grid */}
+                        <div
+                            className="grid grid-flow-col grid-rows-7 gap-1 h-[110px]"
+                            style={{
+                                gridTemplateColumns: `repeat(${WEEKS}, 12px)`,
+                            }}
+                        >
+                            {loading ? (
+                                Array.from({ length: WEEKS * 7 }).map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className="w-[12px] h-[12px] rounded-xs animate-pulse"
+                                        style={{ backgroundColor: 'var(--gh-none)' }}
+                                    />
+                                ))
+                            ) : (
+                                recentContributions.map((day, i) => (
+                                    <div
+                                        key={i}
+                                        className="w-[12px] h-[12px] rounded-xs transition-colors duration-300 hover:scale-110"
+                                        style={{
+                                            backgroundColor: getColorVar(day.contributionLevel),
+                                        }}
+                                        title={`${day.contributionCount} contributions on ${day.date}`}
+                                    />
+                                ))
+                            )}
+                        </div>
                     </div>
                 </div>
 
