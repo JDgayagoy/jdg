@@ -1,12 +1,30 @@
 import type { Metadata } from "next";
 import Navbar from "@/app/components/Navbar";
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const blog = await getBlogBySlug(slug);
+    const title = blog?.title ?? "Blog";
+    const description = blog?.excerpt ?? "Read my latest blog posts by John David Gayagoy.";
+    const url = `https://jdgayagoy.is-a.dev/blogs/${slug}`;
+
     return {
-        title: blog ? `${blog.title} | jaydeegayagoy` : "Blog | jaydeegayagoy",
-        description: blog?.excerpt || "Read my latest blog posts.",
+        title,
+        description,
+        openGraph: {
+            title: `${title} | John David Gayagoy`,
+            description,
+            url,
+            type: "article",
+            publishedTime: blog?.date,
+            authors: ["John David Gayagoy"],
+            images: blog?.image ? [{ url: blog.image, width: 1200, height: 630 }] : undefined,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${title} | John David Gayagoy`,
+            description,
+        },
     };
 }
 import Footer from "@/app/components/Footer";
@@ -37,6 +55,24 @@ export default async function BlogDetailPage({ params }: { params: { slug: strin
                 </Link>
 
                 <article>
+                    <script
+                        type="application/ld+json"
+                        dangerouslySetInnerHTML={{
+                            __html: JSON.stringify({
+                                "@context": "https://schema.org",
+                                "@type": "BlogPosting",
+                                "headline": blog.title,
+                                "description": blog.excerpt,
+                                "datePublished": blog.date,
+                                "url": `https://jdgayagoy.is-a.dev/blogs/${blog.slug}`,
+                                "author": {
+                                    "@type": "Person",
+                                    "name": "John David Gayagoy",
+                                    "url": "https://jdgayagoy.is-a.dev"
+                                }
+                            })
+                        }}
+                    />
                     <header className="mb-12">
                         <div className="flex items-center gap-4 mb-4 text-[13px] text-gray-500 font-jakarta font-medium">
                             <span className="bg-zinc-100 px-3 py-1 rounded-full text-[#454545] font-bold">

@@ -37,21 +37,38 @@ export async function getBlogs(): Promise<Blog[]> {
             let excerpt = "";
             for (let i = 1; i < lines.length; i++) {
                 const line = lines[i].trim();
-                if (line && !line.startsWith('>') && !line.startsWith('---') && !line.startsWith('#')) {
+                if (line && !line.startsWith('>') && !line.startsWith('---') && !line.startsWith('#') && !line.startsWith('**')) {
                     excerpt = line;
                     break;
                 }
+            }
+
+            // Determine image based on slug
+            let image = '/images/blog1.webp';
+            if (slug === 'self-hosted-n8n') {
+                image = '/images/selfhostn8n.jpg';
+            } else if (slug === 'internship') {
+                image = '/images/internship.jpg';
+            }
+
+            // Determine date and category
+            let date = "May 2, 2026";
+            let category = "Tutorial";
+            
+            if (slug === 'internship') {
+                date = "May 3, 2026";
+                category = "Career";
             }
 
             blogs.push({
                 slug,
                 title,
                 excerpt,
-                date: "May 2, 2026",
+                date,
                 readTime: "5 min read",
-                category: "Tutorial",
+                category,
                 content,
-                image: slug === 'self-hosted-n8n' ? '/images/selfhostn8n.jpg' : '/images/blog1.webp'
+                image
             });
         }
     }
@@ -73,20 +90,38 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     let excerpt = "";
     for (let i = 1; i < lines.length; i++) {
         const line = lines[i].trim();
-        if (line && !line.startsWith('>') && !line.startsWith('---') && !line.startsWith('#')) {
+        if (line && !line.startsWith('>') && !line.startsWith('---') && !line.startsWith('#') && !line.startsWith('**')) {
             excerpt = line;
             break;
         }
+    }
+
+    // Determine image based on slug
+    let image = '/images/blog1.webp';
+    if (slug === 'self-hosted-n8n') {
+        image = '/images/blog_n8n_deployment.png';
+    } else if (slug === 'internship') {
+        image = '/images/internship.jpg';
+    }
+
+    // Determine date and category
+    let date = "May 2, 2026";
+    let category = "Tutorial";
+    
+    if (slug === 'internship') {
+        date = "May 3, 2026";
+        category = "Career";
     }
 
     return {
         slug,
         title,
         excerpt,
-        date: "May 2, 2026",
+        date,
         readTime: "5 min read",
-        category: "Tutorial",
+        category,
         content,
-        image: slug === 'self-hosted-n8n' ? '/images/blog_n8n_deployment.png' : '/images/blog1.webp'
+        image
     };
 }
+

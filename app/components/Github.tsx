@@ -17,7 +17,37 @@ interface GitHubData {
 export default function Github() {
     const [data, setData] = useState<GitHubData | null>(null);
     const [loading, setLoading] = useState(true);
-    const months = ["May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr"];
+    const WEEKS = 46; // try 48, 52, or 53
+
+    const monthPositions = useMemo(() => {
+        if (!data) return [];
+
+        const names = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+        const flat = data.contributions.flat().slice(-WEEKS * 7);
+
+        const positions: { label: string; col: number }[] = [];
+        let lastMonth = -1;
+
+        for (let col = 0; col < WEEKS; col++) {
+            const day = flat[col * 7];
+            if (!day) break;
+
+            const month = parseInt(day.date.slice(5, 7), 10) - 1;
+
+            if (col === 0) {
+                positions.push({ label: names[month], col: 0 });
+                lastMonth = month;
+                continue;
+            }
+
+            if (month !== lastMonth) {
+                positions.push({ label: names[month], col });
+                lastMonth = month;
+            }
+        }
+
+        return positions;
+    }, [data]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -31,7 +61,6 @@ export default function Github() {
                 setLoading(false);
             }
         };
-
         fetchData();
     }, []);
 
@@ -46,46 +75,70 @@ export default function Github() {
         }
     };
 
-    const flattenedContributions = useMemo(() => {
+    // Last 26 weeks (≈6 months), keeping only complete weeks from the end
+    const recentContributions = useMemo(() => {
         if (!data) return [];
-        return data.contributions.flat();
+        return data.contributions.flat().slice(-WEEKS * 7);
     }, [data]);
 
     return (
         <section className="relative py-4 px-4 w-full flex flex-col items-center">
-            {/* Border Overlays */}
             <div className="absolute -top-[70%] left-0 h-[120%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
             <div className="absolute -top-[70%] right-0 h-[120%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-screen h-px pointer-events-none" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
 
             <div className="w-full max-w-3xl flex flex-col items-start mt-8">
-                {/* Header */}
                 <span className="text-[14px] font-jakarta" style={{ color: 'var(--accent)' }}>Contributions</span>
                 <h2 className="font-semibold text-2xl leading-relaxed tracking-wide -mt-2 mb-6 transition-colors duration-300" style={{ color: 'var(--text-heading)' }}>Github</h2>
 
-                {/* Calendar Container */}
-                <div className="w-full overflow-x-auto pb-4 custom-scrollbar overflow-hidden">
-                    <div className="min-w-[700px]">
-                        {/* Months Labels */}
-                        <div className="flex mb-2 text-[11px] font-medium" style={{ color: 'var(--accent)', opacity: 0.8 }}>
-                            {months.map((month, i) => (
-                                <div key={i} className="flex-1 text-center">{month}</div>
+                <div className="w-full overflow-x-auto no-scrollbar">
+                    <div className="w-full">
+                        {/* Month labels */}
+                        <div
+                            className="grid mb-2 text-[11px] font-medium"
+                            style={{
+                                gridTemplateColumns: `repeat(${WEEKS}, 12px)`,
+                                columnGap: '4px',
+                                color: 'var(--accent)',
+                                opacity: 0.8,
+                            }}
+                        >
+                            {monthPositions.map(({ label, col }) => (
+                                <div
+                                    key={col}
+                                    className="whitespace-nowrap"
+                                    style={{
+                                        gridColumnStart: col + 1,
+                                    }}
+                                >
+                                    {label}
+                                </div>
                             ))}
                         </div>
 
                         {/* Grid */}
-                        <div className="grid grid-flow-col grid-rows-7 gap-1 h-[110px] overflow-hidden">
+                        <div
+                            className="grid grid-flow-col grid-rows-7 gap-1 h-[110px]"
+                            style={{
+                                gridTemplateColumns: `repeat(${WEEKS}, 12px)`,
+                            }}
+                        >
                             {loading ? (
-                                // Skeleton loader
-                                Array.from({ length: 364 }).map((_, i) => (
-                                    <div key={i} className="w-[12px] h-[12px] rounded-xs animate-pulse" style={{ backgroundColor: 'var(--gh-none)' }} />
+                                Array.from({ length: WEEKS * 7 }).map((_, i) => (
+                                    <div
+                                        key={i}
+                                        className="w-[12px] h-[12px] rounded-xs animate-pulse"
+                                        style={{ backgroundColor: 'var(--gh-none)' }}
+                                    />
                                 ))
                             ) : (
-                                flattenedContributions.map((day, i) => (
+                                recentContributions.map((day, i) => (
                                     <div
                                         key={i}
                                         className="w-[12px] h-[12px] rounded-xs transition-colors duration-300 hover:scale-110"
-                                        style={{ backgroundColor: getColorVar(day.contributionLevel) }}
+                                        style={{
+                                            backgroundColor: getColorVar(day.contributionLevel),
+                                        }}
                                         title={`${day.contributionCount} contributions on ${day.date}`}
                                     />
                                 ))
@@ -94,14 +147,11 @@ export default function Github() {
                     </div>
                 </div>
 
-                {/* Footer Info */}
                 {!loading && data && (
-                    <div className="w-full flex items-center justify-between mt-0 text-[13px] overflow-hidden transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
+                    <div className="w-full flex items-center justify-between mt-2 text-[13px] transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>
                         <div>
                             {data.totalContributions} contributions in the last year on <a href="https://github.com/JDgayagoy" target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">GitHub</a>.
                         </div>
-
-                        {/* Legend */}
                         <div className="flex items-center gap-1.5">
                             <span className="text-[11px]">Less</span>
                             <div className="flex gap-1">

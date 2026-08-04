@@ -5,20 +5,22 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Globe } from "lucide-react";
 import Image from "next/image";
 import { PROJECTS } from "@/lib/projects";
-import Link from "next/link";
+import { ImagesBadge } from "@/components/ui/images-badge";
+
+const FEATURED = PROJECTS.filter(p => p.featured);
 
 export default function Project() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const nextProject = () => {
-        setCurrentIndex((prev) => (prev === PROJECTS.length - 1 ? 0 : prev + 1));
+        setCurrentIndex((prev) => (prev === FEATURED.length - 1 ? 0 : prev + 1));
     };
 
     const prevProject = () => {
-        setCurrentIndex((prev) => (prev === 0 ? PROJECTS.length - 1 : prev - 1));
+        setCurrentIndex((prev) => (prev === 0 ? FEATURED.length - 1 : prev - 1));
     };
 
-    const currentProject = PROJECTS[currentIndex];
+    const currentProject = FEATURED[currentIndex];
 
     return (
         <section className="relative w-full px-4 flex flex-col items-center mt-8">
@@ -80,18 +82,22 @@ export default function Project() {
                                 {/* Dark Gradient Overlay */}
                                 <div className="pt-32 pb-6 md:pb-8 px-6 md:px-10 bg-gradient-to-t from-black/90 via-black/50 to-transparent flex flex-col justify-end text-white transition-transform duration-300 ease-out group-hover:-translate-y-[88px] pointer-events-auto">
                                     <h3 className="text-2xl md:text-4xl font-bold mb-1 md:mb-2">{currentProject.title}</h3>
-                                    <p className="text-[13px] md:text-[15px] text-gray-200 mb-4 md:mb-6 max-w-2xl leading-relaxed">
-                                        {currentProject.description}
+                                    <p className="text-[13px] md:text-[14px] text-gray-300 mb-4 md:mb-6">
+                                        {currentProject.shortDescription}
                                     </p>
                                     <div className="flex items-center gap-6">
-                                        <a href={currentProject.website} className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
-                                            <Globe size={18} />
-                                            <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Website</span>
-                                        </a>
-                                        <a href={currentProject.source} className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
-                                            <Globe size={18} />
-                                            <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Source</span>
-                                        </a>
+                                        {currentProject.website !== "#" && currentProject.website !== "none" && (
+                                            <a href={currentProject.website} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
+                                                <Globe size={18} />
+                                                <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Website</span>
+                                            </a>
+                                        )}
+                                        {currentProject.source !== "#" && currentProject.source !== "private" && (
+                                            <a href={currentProject.source} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm font-semibold hover:text-gray-300 transition-colors group/link">
+                                                <Globe size={18} />
+                                                <span className="underline underline-offset-4 decoration-white/40 group-hover/link:decoration-white transition-colors">Source</span>
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
 
@@ -114,7 +120,7 @@ export default function Project() {
 
             {/* Dots */}
             <div className="flex items-center justify-center gap-2.5 mt-6">
-                {PROJECTS.map((_, idx) => (
+                {FEATURED.map((_, idx) => (
                     <button
                         key={idx}
                         onClick={() => setCurrentIndex(idx)}
@@ -128,18 +134,14 @@ export default function Project() {
                 ))}
             </div>
 
-            {/* Show All Button */}
-            <Link
-                href="/projects"
-                className="mt-4 px-6 mb-5 py-2.5 rounded-[10px] border-2 font-bold text-sm transition-colors no-underline"
-                style={{
-                    borderColor: 'var(--project-showbtn-border)',
-                    backgroundColor: 'var(--project-showbtn-bg)',
-                    color: 'var(--project-showbtn-text)',
-                }}
-            >
-                Show All Projects
-            </Link>
+            {/* View Projects Button */}
+            <div className="mt-8 mb-5">
+                <ImagesBadge
+                    text="View Projects"
+                    images={FEATURED.map(p => p.image)}
+                    href="/projects"
+                />
+            </div>
         </section>
     );
 }

@@ -40,7 +40,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-0 left-0 w-full z-50 backdrop-blur-md transition-colors duration-300" style={{ backgroundColor: 'var(--nav-bg)' }}>
+        <nav className="fixed top-0 left-0 w-full z-60 backdrop-blur-md transition-colors duration-300" style={{ backgroundColor: 'var(--nav-bg)' }}>
             {/* Fading bottom border */}
             <div className="absolute bottom-0 left-0 w-full h-px" style={{ background: `linear-gradient(to right, transparent, var(--border-divider), transparent)` }} />
 
