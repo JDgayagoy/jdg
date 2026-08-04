@@ -63,7 +63,7 @@ export default function Aboutme() {
                 >
                     <Bookmark size={14} strokeWidth={2.5} /> Available for Hire
                 </a>
-                <h3 className="font-bold transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>or</h3>
+                <span className="font-bold transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>or</span>
                 <a
                     href="mailto:johndavidgayagoy@gmail.com"
                     onClick={playSound}

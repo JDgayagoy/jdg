@@ -14,6 +14,7 @@ export default function Hero() {
                 alt="Background Icon"
                 width={180}
                 height={180}
+                priority
                 className="absolute inset-0 m-auto opacity-40 z-10 pointer-events-none"
             />
         </section>

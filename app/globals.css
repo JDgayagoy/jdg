@@ -15,7 +15,7 @@
 
   /* Text */
   --text-heading: #454545;
-  --text-secondary: #888888;
+  --text-secondary: #717171;
   --text-muted: #666666;
   --text-paragraph: #444444;
   --text-label: #454545;
@@ -61,7 +61,7 @@
   /* Career / Misc */
   --marker-active: #FF6B00;
   --marker-subtitle: #777777;
-  --marker-date: #999999;
+  --marker-date: #767676;
   --slider-dot: #8a8a8a;
   --slider-hover: #6a6a6a;
   --footer-gradient: #7e7e7e;
@@ -75,7 +75,7 @@
 
   /* Social hover */
   --social-hover-bg: rgba(243, 244, 246, 1);
-  --social-icon-color: #888888;
+  --social-icon-color: #717171;
 
   /* Certification */
   --cert-border: rgba(229, 231, 235, 1);

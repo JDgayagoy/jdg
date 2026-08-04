@@ -63,7 +63,7 @@ export default function Navbar() {
                     <li>
                         <button
                             onClick={toggleTheme}
-                            className="hover:opacity-70 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
+                            className="hover:opacity-70 transition cursor-pointer relative w-10 h-10 flex items-center justify-center"
                             aria-label="Toggle dark mode"
                         >
                             <AnimatePresence mode="wait" initial={false}>
@@ -82,7 +82,8 @@ export default function Navbar() {
                     <li>
                         <button
                             onClick={() => setIsMuted(!isMuted)}
-                            className="hover:opacity-70 transition cursor-pointer relative w-5 h-5 flex items-center justify-center"
+                            className="hover:opacity-70 transition cursor-pointer relative w-10 h-10 flex items-center justify-center"
+                            aria-label="Toggle background music"
                         >
                             <AnimatePresence mode="wait" initial={false}>
                                 <motion.div

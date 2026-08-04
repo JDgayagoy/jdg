@@ -124,7 +124,7 @@ export default function Footer() {
                     >
                         Let's Talk!
                     </a>
-                    <h1 className="absolute bottom-[-80%] left-1/2 -translate-x-1/2 text-[129px] font-black font-poppins tracking-tighter bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to bottom, var(--footer-gradient), var(--page-bg))` }}>JDGAYAGOY</h1>
+                    <div className="absolute bottom-[-80%] left-1/2 -translate-x-1/2 text-[129px] font-black font-poppins tracking-tighter bg-clip-text text-transparent" style={{ backgroundImage: `linear-gradient(to bottom, var(--footer-gradient), var(--page-bg))` }}>JDGAYAGOY</div>
                 </div>
             </div>
         </footer>
