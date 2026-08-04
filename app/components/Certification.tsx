@@ -11,7 +11,7 @@ const CERTIFICATIONS = [
         issuer: "Google",
         date: "August 2026",
         icon: <Image src="/images/google.png" alt="Google" width={48} height={48} className="object-cover" />,
-        link: "#"
+        link: "https://www.coursera.org/account/accomplishments/specialization/certificate/PAQPDA7F9XUK"
     },
     {
         title: "Data Analysis with Python",
@@ -82,27 +82,27 @@ export default function Certification() {
                                 onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cert-hover-bg)')}
                                 onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
                             >
-                        {/* Icon/Logo Placeholder */}
-                        <div className="w-8 h-8 rounded-sm border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: 'var(--cert-icon-bg)', borderColor: 'var(--cert-icon-border)' }}>
-                            {cert.icon}
-                        </div>
+                                {/* Icon/Logo Placeholder */}
+                                <div className="w-8 h-8 rounded-sm border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: 'var(--cert-icon-bg)', borderColor: 'var(--cert-icon-border)' }}>
+                                    {cert.icon}
+                                </div>
 
-                        {/* Info */}
-                        <div className="flex-1 flex flex-col border-l pl-4" style={{ borderColor: 'var(--cert-info-border)' }}>
-                            <h3 className="text-[12px] md:text-[16px] font-light group-hover:text-blue-600 transition-colors leading-tight mt-1" style={{ color: 'var(--text-label)' }}>
-                                {cert.title}
-                            </h3>
-                            <div className="flex items-center gap-2 text-[13px] md:text-[14px] font-medium" style={{ color: 'var(--text-secondary)' }}>
-                                <span>@ {cert.issuer}</span>
-                                <span style={{ color: 'var(--cert-arrow)' }}>|</span>
-                                <span>{cert.date}</span>
-                            </div>
-                        </div>
+                                {/* Info */}
+                                <div className="flex-1 flex flex-col border-l pl-4" style={{ borderColor: 'var(--cert-info-border)' }}>
+                                    <h3 className="text-[12px] md:text-[16px] font-light group-hover:text-blue-600 transition-colors leading-tight mt-1" style={{ color: 'var(--text-label)' }}>
+                                        {cert.title}
+                                    </h3>
+                                    <div className="flex items-center gap-2 text-[13px] md:text-[14px] font-medium" style={{ color: 'var(--text-secondary)' }}>
+                                        <span>@ {cert.issuer}</span>
+                                        <span style={{ color: 'var(--cert-arrow)' }}>|</span>
+                                        <span>{cert.date}</span>
+                                    </div>
+                                </div>
 
-                        {/* Arrow */}
-                        <div className="group-hover:text-blue-600 transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: 'var(--cert-arrow)' }}>
-                            <ArrowUpRight size={20} />
-                        </div>
+                                {/* Arrow */}
+                                <div className="group-hover:text-blue-600 transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: 'var(--cert-arrow)' }}>
+                                    <ArrowUpRight size={20} />
+                                </div>
                             </a>
                         </motion.div>
                     ))}
