@@ -68,10 +68,11 @@ export default function Certification() {
                     {displayedCerts.map((cert, index) => (
                         <motion.div
                             key={cert.title}
-                            initial={{ opacity: 0, x: -30, height: 0, overflow: "hidden" }}
-                            animate={{ opacity: 1, x: 0, height: "auto", transitionEnd: { overflow: "visible" } }}
-                            exit={{ opacity: 0, x: -20, height: 0, overflow: "hidden" }}
+                            initial={{ opacity: 0, x: -30 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            exit={{ opacity: 0, x: -20 }}
                             transition={{ duration: 0.4, ease: "easeOut", delay: index >= 3 ? (index - 3) * 0.08 : 0 }}
+                            className="relative z-0 hover:z-10"
                         >
                             <a
                                 href={cert.link}
