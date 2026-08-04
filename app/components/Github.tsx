@@ -52,7 +52,12 @@ export default function Github() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('https://github-contributions-api.deno.dev/JDgayagoy.json');
+                const response = await fetch("/api/github");
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error: ${response.status}`);
+                }
+
                 const result = await response.json();
                 setData(result);
             } catch (error) {
