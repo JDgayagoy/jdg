@@ -1,8 +1,9 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const CERTIFICATIONS = [
     {
@@ -39,7 +40,7 @@ const CERTIFICATIONS = [
         date: "March 2025",
         icon: <Image src="/images/cse.jpg" alt="CSE" width={48} height={48} className="object-cover" />,
         link: "#"
-    },    
+    },
     {
         title: "1st Runner up - ICT Competition: Web Design",
         issuer: "National level Web design competition at Echague, Isabela",
@@ -50,6 +51,9 @@ const CERTIFICATIONS = [
 ];
 
 export default function Certification() {
+    const [showAll, setShowAll] = useState(false);
+    const displayedCerts = showAll ? CERTIFICATIONS : CERTIFICATIONS.slice(0, 3);
+
     return (
         <section className="relative py-12 px-4 w-full flex flex-col items-center">
             {/* Header */}
@@ -60,17 +64,24 @@ export default function Certification() {
 
             {/* List */}
             <div className="w-full max-w-3xl flex flex-col">
-                {CERTIFICATIONS.map((cert, index) => (
-                    <a
-                        key={index}
-                        href={cert.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group flex items-center gap-5 first:border-t py-3 border-b transition-all px-2 -mx-2 hover:scale-110"
-                        style={{ borderColor: 'var(--cert-border)' }}
-                        onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cert-hover-bg)')}
-                        onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
-                    >
+                <AnimatePresence initial={false}>
+                    {displayedCerts.map((cert, index) => (
+                        <motion.div
+                            key={cert.title}
+                            initial={{ opacity: 0, x: -30, height: 0, overflow: "hidden" }}
+                            animate={{ opacity: 1, x: 0, height: "auto", transitionEnd: { overflow: "visible" } }}
+                            exit={{ opacity: 0, x: -20, height: 0, overflow: "hidden" }}
+                            transition={{ duration: 0.4, ease: "easeOut", delay: index >= 3 ? (index - 3) * 0.08 : 0 }}
+                        >
+                            <a
+                                href={cert.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`group flex items-center gap-5 py-3 border-b transition-all px-2 -mx-2 hover:scale-110 ${index === 0 ? 'border-t' : ''}`}
+                                style={{ borderColor: 'var(--cert-border)' }}
+                                onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = 'var(--cert-hover-bg)')}
+                                onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = 'transparent')}
+                            >
                         {/* Icon/Logo Placeholder */}
                         <div className="w-8 h-8 rounded-sm border flex items-center justify-center shrink-0 group-hover:scale-105 transition-transform" style={{ backgroundColor: 'var(--cert-icon-bg)', borderColor: 'var(--cert-icon-border)' }}>
                             {cert.icon}
@@ -92,8 +103,22 @@ export default function Certification() {
                         <div className="group-hover:text-blue-600 transition-colors transform group-hover:translate-x-1 group-hover:-translate-y-1" style={{ color: 'var(--cert-arrow)' }}>
                             <ArrowUpRight size={20} />
                         </div>
-                    </a>
-                ))}
+                            </a>
+                        </motion.div>
+                    ))}
+                </AnimatePresence>
+
+                {CERTIFICATIONS.length > 3 && (
+                    <button
+                        onClick={() => setShowAll(!showAll)}
+                        className="mt-6 text-[14px] hover:text-[15px] font-medium transition-all self-end"
+                        style={{ color: 'var(--text-secondary)' }}
+                        onMouseEnter={(e) => e.currentTarget.style.color = 'var(--accent)'}
+                        onMouseLeave={(e) => e.currentTarget.style.color = 'var(--text-secondary)'}
+                    >
+                        {showAll ? 'Show Less' : 'Show More'}
+                    </button>
+                )}
             </div>
         </section>
     );

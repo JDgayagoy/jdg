@@ -58,6 +58,7 @@ export default function Navbar() {
 
                 {/* Navigation Menu */}
                 <ul className="flex items-center gap-4 sm:gap-6" style={{ color: 'var(--nav-text)' }}>
+                    <li><Link href="/projects" className="hover:opacity-70 transition text-sm font-bold">projects</Link></li>
                     <li><Link href="/blogs" className="hover:opacity-70 transition text-sm font-bold">blogs</Link></li>
                     <li>
                         <button
