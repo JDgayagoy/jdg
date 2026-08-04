@@ -6,20 +6,6 @@ import { ArrowUpRight } from 'lucide-react';
 
 const CERTIFICATIONS = [
     {
-        title: "Certificate of Participation",
-        issuer: "CodeKada: The Online Hackathon - DevKada",
-        date: "May 2026",
-        icon: <Image src="/images/devkada.jpg" alt="DevKada" width={48} height={48} className="object-cover" />,
-        link: "#"
-    },
-    {
-        title: "Civil Service Eligible Professional",
-        issuer: "Passed Civil Service Examination - Professional Level",
-        date: "March 2025",
-        icon: <Image src="/images/cse.jpg" alt="CSE" width={48} height={48} className="object-cover" />,
-        link: "#"
-    },    
-    {
         title: "Google AI Essentials",
         issuer: "Google",
         date: "August 2026",
@@ -40,6 +26,20 @@ const CERTIFICATIONS = [
         icon: <Image src="/images/hackerrank.png" alt="freeCodeCamp" width={48} height={48} className="object-cover" />,
         link: "https://www.hackerrank.com/certificates/iframe/c219d875800f"
     },
+    {
+        title: "Certificate of Participation",
+        issuer: "CodeKada: The Online Hackathon - DevKada",
+        date: "May 2026",
+        icon: <Image src="/images/devkada.jpg" alt="DevKada" width={48} height={48} className="object-cover" />,
+        link: "#"
+    },
+    {
+        title: "Civil Service Eligible Professional",
+        issuer: "Passed Civil Service Examination - Professional Level",
+        date: "March 2025",
+        icon: <Image src="/images/cse.jpg" alt="CSE" width={48} height={48} className="object-cover" />,
+        link: "#"
+    },    
     {
         title: "1st Runner up - ICT Competition: Web Design",
         issuer: "National level Web design competition at Echague, Isabela",
