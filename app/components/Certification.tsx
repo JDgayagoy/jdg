@@ -11,6 +11,27 @@ const CERTIFICATIONS = [
         date: "March 2025",
         icon: <Image src="/images/cse.jpg" alt="CSE" width={48} height={48} className="object-cover" />,
         link: "#"
+    },    
+    {
+        title: "Google AI Essentials",
+        issuer: "Google",
+        date: "August 2026",
+        icon: <Image src="/images/google.png" alt="Google" width={48} height={48} className="object-cover" />,
+        link: "#"
+    },
+    {
+        title: "Data Analysis with Python",
+        issuer: "Cisco Networking Academy",
+        date: "August 2026",
+        icon: <Image src="/images/cisco.jpg" alt="Cisco" width={48} height={48} className="object-cover" />,
+        link: "https://www.credly.com/badges/57b245fc-2128-4b53-92d4-c8e4fd8bc9b0"
+    },
+    {
+        title: "React JS (Basic)",
+        issuer: "Hackerrank",
+        date: "August 2026",
+        icon: <Image src="/images/hackerrank.png" alt="freeCodeCamp" width={48} height={48} className="object-cover" />,
+        link: "https://www.hackerrank.com/certificates/iframe/c219d875800f"
     },
     {
         title: "1st Runner up - ICT Competition: Web Design",
@@ -19,13 +40,6 @@ const CERTIFICATIONS = [
         icon: <Image src="/images/isue.png" alt="ISUE" width={48} height={48} className="object-cover" />,
         link: "#"
     },
-    {
-        title: "ICAST",
-        issuer: "CSU & Yuvakshetra Institute of Management Studies, India",
-        date: "February 2025",
-        icon: <Image src="/images/csu.jpg" alt="CSU" width={48} height={48} className="object-cover" />,
-        link: "#"
-    }
 ];
 
 export default function Certification() {

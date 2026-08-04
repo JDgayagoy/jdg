@@ -48,6 +48,16 @@ export const PROJECTS = [
         website: "#",
         source: "#",
         techStack: ["n8n", "Docker", "Self-hosting", "Automation"]
+    },
+    {
+        id: 6,
+        title: "Travel Ops",
+        description: "A comprehensive travel operations management system for streamlined bookings and itinerary planning.",
+        image: "/images/travelops.jpg",
+        gradient: "from-blue-500 via-teal-500 to-emerald-600",
+        website: "#",
+        source: "#",
+        techStack: ["Next.js", "TypeScript", "TailwindCSS", "Supabase"]
     }
 ];
 
