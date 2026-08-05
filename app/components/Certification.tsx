@@ -7,6 +7,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const CERTIFICATIONS = [
     {
+        title: "AWS Cloud Practitioner Essentials",
+        issuer: "Amazon Web Services",
+        date: "August 2026",
+        icon: <Image src="/images/aws.webp" alt="AWS" width={48} height={48} className="object-cover" />,
+        link: "file/aws.pdf"
+    },
+    {
         title: "Google AI Essentials",
         issuer: "Google",
         date: "August 2026",
