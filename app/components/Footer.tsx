@@ -41,7 +41,7 @@ export default function Footer() {
     ];
 
     return (
-        <footer className="relative w-full py-20 px-6 overflow-hidden flex flex-col items-center">
+        <footer className="relative w-full py-20 px-6 -mt-10 overflow-hidden flex flex-col items-center">
             <div className="relative z-10 w-full max-w-3xl flex flex-col md:flex-row items-center md:items-start gap-12">
                 {/* Left: Illustration/Image */}
                 <div className="w-40 h-40 relative">
