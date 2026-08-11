@@ -61,7 +61,7 @@ export default function Aboutme() {
                         letterSpacing: "0.05em",
                     }}
                 >
-                    <Bookmark size={14} strokeWidth={2.5} /> Available for Hire
+                    <Bookmark size={14} strokeWidth={2.5} /> Open to Work
                 </a>
                 <span className="font-bold transition-colors duration-300" style={{ color: 'var(--text-secondary)' }}>or</span>
                 <a
@@ -98,8 +98,8 @@ export default function Aboutme() {
                 className="font-light text-lg md:text-xl leading-relaxed tracking-wider mt-8 transition-colors duration-300"
                 style={{ color: 'var(--text-secondary)' }}
             >
-                I build apps, automate stuff, and occasionally fight bugs for a living.
-            </motion.h2>
+            I'm JD, a full-stack developer who loves turning ideas into working software — from ERP systems to AI-powered apps — using React, Next.js, Laravel, C#, Python, PHP, and C++.
+             </motion.h2>
 
             {/* Horizontal lines */}
             <div className="absolute -top-[40%] left-0 h-[240%] w-px" style={{ background: `linear-gradient(to bottom, transparent, var(--border-divider), transparent)` }} />
