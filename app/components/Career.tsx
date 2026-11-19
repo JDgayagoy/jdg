@@ -7,7 +7,7 @@ import Image from "next/image";
 
 const MARKERS = [
     {
-        id: 1,
+        id: 2,
         left: "12.65%",
         top: "1%",
         title: "Cagayan State University - Carig Campus",
@@ -16,13 +16,13 @@ const MARKERS = [
         image: "/images/csu.jpg",
     },
     {
-        id: 2,
+        id: 1,
         left: "31.6%",
         top: "10.7%",
-        title: "Fiverr",
-        subtitle: "Freelance Graphic Designer",
-        date: "November 2020 - December 2021",
-        image: "/images/fiver.png",
+        title: "eBizolution Inc.",
+        subtitle: "Database Administrator",
+        date: "November 2026 - Present",
+        image: "/images/ebiz.png",
     },
     {
         id: 3,
