@@ -20,7 +20,7 @@ const MARKERS = [
         left: "31.6%",
         top: "10.7%",
         title: "eBizolution Inc.",
-        subtitle: "Database Administrator",
+        subtitle: "Application Database Administrator",
         date: "November 2026 - Present",
         image: "/images/ebiz.png",
     },
